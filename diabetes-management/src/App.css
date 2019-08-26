@@ -21,15 +21,24 @@ body {
   background: linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   
 }
+.App{
+  height: auto;
+}
 
-.App {
-  height: 100%;
+.container {
+  height: 80vh;
   display: flex;
   align-items: center;
+}
+.navbar{
+  margin: 25px;
+  color: white;
+
 }
 
 .user-form {
   width: 500px;
+  height: max-content;
   margin: 0 auto;
   padding: 32px;
   background-color: #fff;

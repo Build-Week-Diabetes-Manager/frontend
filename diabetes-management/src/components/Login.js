@@ -41,7 +41,7 @@ console.log(users)
           <span className="checkmark" />
         </label>
 
-        <button type="submit">Submit!</button>
+        <button type="submit">Sign Up!</button>
       </Form>
       
     </div>
