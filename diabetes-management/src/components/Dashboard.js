@@ -1,5 +1,7 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Container, Row, Col } from 'react-bootstrap';
+
+import TestLine from './ChartTwo.js';
 
 const Dashboard = ()=> {
 
@@ -9,26 +11,32 @@ const Dashboard = ()=> {
             <Row>
              <Col sm={1}>
                 <div className="icon-container">
-                    <p>Icon</p>
-                    <button> home button </button>
-                    <button> graph button </button>
+                <img className="icon logo" src={require('../img/dashboardIcons/Logo1.svg')}/>
+                    
+                    <button> <img className="icon" src={require('../img/dashboardIcons/homeIcon1.svg')}/> </button>
+
+                    <button> <img className="icon" src={require('../img/dashboardIcons/graphIcon.svg')}/> </button>
                 </div>
              </Col>
             </Row>
 
-            <Row>
+            <Row className="row-2">
              <Col sm={11}>
                 <div className="view-wrapper">
 
                     <div className="top-bar">
-                        <h4>Diabetes Manager</h4>
+                        <h4>Hello User</h4>
                     </div>
 
                     <div className="view-container">
-                        <h2>view container</h2>
                         <div className="component-container">
-                            <div className="container-one"> Container 1</div>
-                            <div className="container-two"> Container 2</div>
+                            <div className="container-one"> 
+                           
+                            </div>
+
+                            <div className="container-two"> 
+                            <TestLine />
+                            </div>
                         </div>
                     </div>
 

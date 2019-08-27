@@ -41,8 +41,8 @@ body {
 /* DASHBOARD COMPONENTS */
 .dashboard-container{
   display:flex;
-  border:3pt solid #6faaa4;
-  background-color: #00bd9d;
+  padding: 1em;
+  background-color: white;
   border-radius: 15px;
   width: 95%;
   margin:0 auto;
@@ -55,9 +55,18 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #00bd9d;
+  background-color: white;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
+
+  .icon{
+    width:2.5rem;
+    margin: 2% 0;
+  }
+  .logo{
+    margin:22% 0;
+
+  }
 }
 
 .icon-container button{
@@ -78,30 +87,10 @@ body {
 .top-bar{
   display: flex;
   flex-direction: row;
-  background-color: #fffbfa;
-  border-top-right-radius: 15px;
+
 
 }
-.view-container{
-  display:flex;
-  flex-direction: column;
-  background-color: #8bd7d2;
-  border-bottom-right-radius: 15px; 
-   
-  .component-container{
-    display: flex;
-    flex-direction: row;
-  }
 
-  .container-one{
-    border:1px solid red;
-    
-  }
-
-  .container-two{
-    width: 100px;
-  }
-}
 
 
 /* USER FORM */
@@ -305,4 +294,30 @@ button.outline {
   padding: 25px;
   border-radius: 5px;
   overflow: auto;
+}
+
+
+.top-bar{
+  width: 100%;
+  margin-bottom: 1em;
+}
+.row-2{
+  width:100%;
+}
+.component-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 1em;
+  grid-gap: 1em;
+  .container-one{
+    height: 500px;
+    text-align: center;
+    background-color: #8bd7d2;
+  }
+  .container-two{
+    background-color: white;
+  }
+  .container-two{
+    text-align: center;
+  }
 }
