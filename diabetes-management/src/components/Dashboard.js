@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { Container, Row, Col } from 'react-bootstrap';
-
+import TestDoughnut from './ChartThree.js'
 import TestLine from './ChartTwo.js';
 
 const Dashboard = ()=> {
@@ -31,7 +31,7 @@ const Dashboard = ()=> {
                     <div className="view-container">
                         <div className="component-container">
                             <div className="container-one"> 
-                          
+                          <TestDoughnut />
                             </div>
 
                             <div className="container-two"> 
