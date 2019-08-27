@@ -9,9 +9,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 
 import './App.css';
-import SignUp from "./components/SignUp.js"; 
-import { Route } from "react-router-dom"; 
-import FormikUserForm from './components/SignUp.js';
+import Signup from "./components/Signup.js"; 
+
 
 
 function App() {
@@ -19,10 +18,12 @@ function App() {
     <Router>
     <div className="App">
 
+    
+
       <Navbar/>
       <div className="container">
     <Route exact path="/Login" component={FormikUserForm} />
-    <Route exact path="/Register" component={UserForm} />
+    <Route exact path="/Register" component={Signup} />
     <PrivateRoute exact path="/Dashboard" component={Dashboard} />
     </div>
 
