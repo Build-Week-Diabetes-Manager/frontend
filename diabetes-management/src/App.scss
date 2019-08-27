@@ -317,10 +317,12 @@ button.outline {
   .container-one{
     height: 500px;
     text-align: center;
-    background-color: #8bd7d2;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
   }
   .container-two{
     background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   }
   .container-two{
     text-align: center;
