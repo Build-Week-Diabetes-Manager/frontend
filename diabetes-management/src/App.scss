@@ -1,3 +1,7 @@
+/* Color Variables*/
+$color-dashbackground: #8bd7d2;
+
+
 * {
   box-sizing: border-box;
 }
@@ -23,6 +27,8 @@ body {
 }
 .App{
   height: auto;
+  display:flex;
+  flex-direction: column;
 }
 
 .container {
@@ -36,6 +42,62 @@ body {
 
 }
 
+/* DASHBOARD COMPONENTS */
+.dashboard-container{
+  display:flex;
+  padding: 1em;
+  background-color: white;
+  border-radius: 15px;
+  width: 95%;
+  margin:0 auto;
+  box-shadow: 0px 0px 39px -20px;
+
+}
+
+.icon-container{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+
+  .icon{
+    width:2.5rem;
+    margin: 2% 0;
+  }
+  .logo{
+    margin:22% 0;
+
+  }
+}
+
+.icon-container button{
+  margin:1% 0;
+  background:none;
+  box-shadow: none;
+}
+
+.view-wrapper{
+  margin:0;
+  height:100%;
+}
+
+.view-wrapper h2{
+  margin:0;
+}
+
+.top-bar{
+  display: flex;
+  flex-direction: row;
+
+
+}
+
+
+
+/* USER FORM */
 .user-form {
   width: 500px;
   height: max-content;
@@ -236,4 +298,33 @@ button.outline {
   padding: 25px;
   border-radius: 5px;
   overflow: auto;
+}
+
+
+.top-bar{
+  width: 100%;
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+.row-2{
+  width:100%;
+}
+.component-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 1em;
+  grid-gap: 1em;
+  .container-one{
+    height: 500px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+  }
+  .container-two{
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  }
+  .container-two{
+    text-align: center;
+  }
 }

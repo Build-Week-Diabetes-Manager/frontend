@@ -1,30 +1,35 @@
 import React from 'react';
-
-import FormikUserForm from './components/Login'
-import PrivateRoute from './components/PrivateRoute'
-import {Navbar} from './components/Navbar'
-import Dashboard from './components/Dashboard'
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Container } from 'react-bootstrap';
+
+import FormikUserLoginForm from './components/Login';
+import FormikUserSignUpForm from './components/Signup';
+import PrivateRoute from './components/PrivateRoute'
+import {Navbar} from './components/Navbar';
+import Dashboard from './components/Dashboard';
 
 
 
-import './App.css';
-import SignUp from "./components/SignUp.js"; 
-import { Route } from "react-router-dom"; 
-import FormikUserForm from './components/SignUp.js';
+import './App.scss';
+// import SignUp from "./components/SignUp.js"; 
 
 
 function App() {
   return (
     <Router>
     <div className="App">
-
       <Navbar/>
-      <div className="container">
-    <Route exact path="/Login" component={FormikUserForm} />
-    <Route exact path="/Register" component={UserForm} />
-    <PrivateRoute exact path="/Dashboard" component={Dashboard} />
-    </div>
+
+      <div className="Container">
+        {/* <Route exact path="/Login" component={FormikUserLoginForm} />
+        <Route exact path="/Register" component={FormikUserSignUpForm} /> */}
+        {/* Changed Route methods so we can have access to history prop*/}
+        <PrivateRoute exact path="/Dashboard" component={Dashboard} />
+        <Route exact path="/login" render={props => <FormikUserLoginForm {...props} />}  />
+        <Route exact path="/register" render={props => <FormikUserSignUpForm {...props} />}  />
+      </div>
+
+      <Dashboard />
 
     </div>
     </Router>
