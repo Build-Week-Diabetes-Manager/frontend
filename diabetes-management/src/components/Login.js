@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 
 const UserForm = ({ errors, touched, values, handleSubmit, status }) => {
   const [users, setUsers] = useState([]);
+  const [isRegistered, setIsRegistered] =useState(false)
 console.log(users)
   useEffect(() => {
     if (status) {
@@ -18,32 +19,20 @@ console.log(users)
     <div className="user-form">
       <h1>Login</h1>
       <Form>
-        <Field type="text" name="name" placeholder="Name" />
-        {touched.name && errors.name && (
-          <p className="error">{errors.name}</p>
+        <Field type="text" name="username" placeholder="Username" />
+        {touched.username && errors.username && (
+          <p className="error">{errors.username}</p>
         )}
 
-        <Field type="email" name="email" placeholder="Email" />
-        {touched.email && errors.email && <p className="error">{errors.email}</p>}
 
         <Field type="password" name="password" placeholder="Password" />
         {touched.password && errors.password && (
           <p className="error">{errors.password}</p>
         )}
 
-        <label className="checkbox-container">
-          I accept the Terms of Service
-          <Field
-            type="checkbox"
-            name="tos"
-            checked={values.tos}
-          />
-          <span className="checkmark" />
-        </label>
-
-        <button type="submit">Sign Up!</button>
+        <button className="submit-btn"type="submit">Sign Up!</button>
       </Form>
-      
+      <button onClick={() => {isRegistered ? setIsRegistered(false) : setIsRegistered(true)}}className="register-btn">{isRegistered ? `Already have an account?` : `Don't Have An Account?`}</button>
     </div>
 
     </>
@@ -51,13 +40,11 @@ console.log(users)
 };
 
 
-const FormikUserLoginForm = withFormik({
-  mapPropsToValues({ name, email, password, tos }) {
+const FormikUserForm = withFormik({
+  mapPropsToValues({ username, password }) {
     return {
-      tos: tos || false,
       password: password || '',
-      email: email || '',
-      name: name || ''
+      username: username || '',
     };
   },
 
@@ -78,4 +65,5 @@ const FormikUserLoginForm = withFormik({
   }
 })(UserForm);
 
-export default FormikUserLoginForm;
+export default FormikUserForm;
+

@@ -1,3 +1,7 @@
+/* Color Variables*/
+$color-dashbackground: #8bd7d2;
+
+
 * {
   box-sizing: border-box;
 }
@@ -300,6 +304,7 @@ button.outline {
 .top-bar{
   width: 100%;
   margin-bottom: 1em;
+  margin-left: 1em;
 }
 .row-2{
   width:100%;
