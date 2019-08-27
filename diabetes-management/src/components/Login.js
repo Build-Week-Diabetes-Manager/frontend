@@ -51,7 +51,7 @@ console.log(users)
 };
 
 
-const FormikUserForm = withFormik({
+const FormikUserLoginForm = withFormik({
   mapPropsToValues({ name, email, password, tos }) {
     return {
       tos: tos || false,
@@ -78,4 +78,4 @@ const FormikUserForm = withFormik({
   }
 })(UserForm);
 
-export default FormikUserForm;
+export default FormikUserLoginForm;

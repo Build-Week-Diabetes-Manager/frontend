@@ -23,6 +23,8 @@ body {
 }
 .App{
   height: auto;
+  display:flex;
+  flex-direction: column;
 }
 
 .container {
@@ -36,6 +38,73 @@ body {
 
 }
 
+/* DASHBOARD COMPONENTS */
+.dashboard-container{
+  display:flex;
+  border:3pt solid #6faaa4;
+  background-color: #00bd9d;
+  border-radius: 15px;
+  width: 95%;
+  margin:0 auto;
+  box-shadow: 0px 0px 39px -20px;
+
+}
+
+.icon-container{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #00bd9d;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.icon-container button{
+  margin:1% 0;
+  background:none;
+  box-shadow: none;
+}
+
+.view-wrapper{
+  margin:0;
+  height:100%;
+}
+
+.view-wrapper h2{
+  margin:0;
+}
+
+.top-bar{
+  display: flex;
+  flex-direction: row;
+  background-color: #fffbfa;
+  border-top-right-radius: 15px;
+
+}
+.view-container{
+  display:flex;
+  flex-direction: column;
+  background-color: #8bd7d2;
+  border-bottom-right-radius: 15px; 
+   
+  .component-container{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .container-one{
+    border:1px solid red;
+    
+  }
+
+  .container-two{
+    width: 100px;
+  }
+}
+
+
+/* USER FORM */
 .user-form {
   width: 500px;
   height: max-content;

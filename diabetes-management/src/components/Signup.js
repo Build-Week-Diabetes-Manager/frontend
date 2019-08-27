@@ -52,7 +52,7 @@ import { Form, Field, withFormik } from "formik";
 }
 
 
-const FormikUserForm = withFormik({
+const FormikUserSignUpForm = withFormik({
     mapPropsToValues({ name, email, password, tos}) {
         return {
             name: name || '',
@@ -90,7 +90,7 @@ handleSubmit(values, { resetForm ,setErrors, setStatus }) {
 
 
 
-export default FormikUserForm;
+export default FormikUserSignUpForm;
 
 
 
