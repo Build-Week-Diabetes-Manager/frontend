@@ -56,7 +56,7 @@ const FormikUserForm = withFormik({
 
   handleSubmit(values, { setStatus }) {
     axios
-      .post('https://reqres.in/api/users/', values)
+      .post('https://diabetesmanager.herokuapp.com/api/users/login', values)
       .then(res => {
         setStatus(res.data);
         console.log(res.data)

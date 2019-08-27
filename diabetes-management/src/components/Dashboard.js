@@ -31,7 +31,7 @@ const Dashboard = ()=> {
                     <div className="view-container">
                         <div className="component-container">
                             <div className="container-one"> 
-                           
+                          
                             </div>
 
                             <div className="container-two"> 

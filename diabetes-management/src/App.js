@@ -24,7 +24,7 @@ function App() {
         {/* <Route exact path="/Login" component={FormikUserLoginForm} />
         <Route exact path="/Register" component={FormikUserSignUpForm} /> */}
         {/* Changed Route methods so we can have access to history prop*/}
-        <PrivateRoute exact path="/dashboard" component={Dashboard} />
+        <PrivateRoute exact path="/Dashboard" component={Dashboard} />
         <Route exact path="/login" render={props => <FormikUserLoginForm {...props} />}  />
         <Route exact path="/register" render={props => <FormikUserSignUpForm {...props} />}  />
       </div>
