@@ -12,6 +12,7 @@
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.1",
+    "react-select": "^3.0.4",
     "sass": "^1.22.10",
     "yup": "^0.27.0"
   },
