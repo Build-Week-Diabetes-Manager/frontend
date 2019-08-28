@@ -49,16 +49,16 @@ const FormikUserForm = withFormik({
   },
 
   validationSchema: Yup.object().shape({
-    name: Yup.string().required('Please enter your name'),
-    email: Yup.string().required('Please enter a valid email'),
+    username: Yup.string().required('Please enter your username'),
     password: Yup.string().required('Please enter a password')
   }),
 
-  handleSubmit(values, { setStatus }) {
+  handleSubmit(values, { props, setStatus }) {
     axios
       .post('https://diabetesmanager.herokuapp.com/api/users/login', values)
       .then(res => {
         setStatus(res.data);
+        props.history.push("/dashboard")
         console.log(res.data)
       })
       .catch(err => console.log(err.response));
