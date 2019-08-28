@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import { Line } from 'react-chartjs-2';
+import { Line, Doughnut } from 'react-chartjs-2';
 import colors from './colors'
 
 
 
 const data = {
-  labels: ['Breakfast', ' Elevensies', 'Lunch', 'PostLunch', 'Dinner', 'Post', 'midnight snack'],
+  labels: ['UserDaily GL', 'Predicted GL'],
   datasets: [
     {
       label: 'Predicted Glucose Levels',
@@ -56,8 +56,8 @@ export default class  extends Component {
   render() {
     return (
       <div>
-        <h2>Congrats! It's Diabetes</h2>
-        <Line ref="chart" data={data} />
+        <h2>Glucose doughnut chart</h2>
+        <Doughnut ref="chart" data={data} />
       </div>
     );
   }

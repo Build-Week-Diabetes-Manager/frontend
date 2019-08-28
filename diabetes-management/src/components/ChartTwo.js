@@ -56,7 +56,7 @@ export default class TestLine extends Component {
   render() {
     return (
       <div>
-        <h2>Congrats! It's Diabetes</h2>
+        <h2>Glucose doughnut chart</h2>
         <Line ref="chart" data={data} />
       </div>
     );
