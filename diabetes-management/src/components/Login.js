@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import '../App.scss';
 
 const UserForm = ({ errors, touched, values, handleSubmit, status }) => {
   const [users, setUsers] = useState([]);
@@ -23,17 +25,13 @@ console.log(users)
         {touched.username && errors.username && (
           <p className="error">{errors.username}</p>
         )}
-
-
         <Field type="password" name="password" placeholder="Password" />
         {touched.password && errors.password && (
           <p className="error">{errors.password}</p>
         )}
-
-
-        <button className="submit-btn"type="submit">Login!</button>
+        <button className="submit-btn" type="submit">Login!</button>
       </Form>
-      <button onClick={() => {isRegistered ? setIsRegistered(false) : setIsRegistered(true)}}className="register-btn">{isRegistered ? `Already have an account?` : `Don't Have An Account?`}</button>
+      <button className="switch-route"><Link className="route-link" to="/signup"> Don't Have An Account? </Link> </button>
     </div>
 
     </>
@@ -53,6 +51,7 @@ const FormikUserFormLogin = withFormik({
     username: Yup.string().required('Please enter your username'),
     password: Yup.string().required('Please enter a password')
   }),
+  
 
   handleSubmit(values, { props, setStatus }) {
     console.log("users value",values)
