@@ -5,13 +5,20 @@ import FormikUserSignUpForm from './components/Signup';
 import PrivateRoute from './components/PrivateRoute'
 import {Navbar} from './components/Navbar';
 import Dashboard from './components/Dashboard';
+
+
+// Test Semantic UI tabs
+// import DashboardPointing from './components/DashboardTest';
+
+
+
+
 import './App.scss';
 
 
 
 function App() {
   return (
-    <Router>
     <div className="App">
       <Navbar/>
       <Link to="/login"> Login </Link>
@@ -27,9 +34,9 @@ function App() {
       </div>
 
       <Dashboard />
+      {/* <DashboardPointing /> */}
 
-    </div>
-    </Router>
+    </div> 
   );
 }
 export default App;
