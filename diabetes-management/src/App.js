@@ -17,15 +17,14 @@ function App() {
     <Router> 
 
 <div className="App">
-     <Link to="/signup"> Sign Up </Link> 
-    <Link to="/login"> Login </Link>
+   
     </div> 
     <div className="container"> 
     <Route path="/Login" render={props => <FormikUserFormLogin {...props } />} />
     <Route path="/Signup" render={props => <FormikUserFormSignup {...props } />} />
     <PrivateRoute exact path="/Dashboard" component={Dashboard} />
     </div>
-    <Dashboard />
+   
     </Router>
   );
 }

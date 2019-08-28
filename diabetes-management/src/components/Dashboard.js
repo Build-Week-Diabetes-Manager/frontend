@@ -4,10 +4,12 @@ import { TabContainer, Container, Row, Col, Tab, Nav } from 'react-bootstrap';
 import TestDoughnut from './ChartThree.js'
 import TestLine from './ChartTwo.js';
 import NutriList from './NutriList.js';
+import GraphContainer from './GraphContainer.js'; 
+import DashHome from './DashHome.js';
 
 const Dashboard = () => {
     const [tab, setTab] = useState();
-
+    const [home, setHome] =useState(true);
 
     return (
     <div className="Container dashboard-container">  
@@ -19,25 +21,12 @@ const Dashboard = () => {
                         {/*Diabetes Manager Logo */}
                         <img className="icon logo" src={require('../img/dashboardIcons/Logo1.svg')}/>
 
-                        {/* Normal way - This way works but I dont like it  */}
-                        {/* <NavLink exact to="/" className="iconLinks">
-                        <img className="icon" src={require('../img/dashboardIcons/homeIcon1.svg')}/>
-                        </NavLink>
-                        <NavLink exact to="/graph" className="iconLinks">
-                        <img className="icon" src={require('../img/dashboardIcons/graphIcon.svg')}/> 
-                        </NavLink> */}
-
-
-                        {/* Using React-bootstrap Tab method */}
-                        {/* Display graphs when home icon is selected, this pane should open by default first */}
-                        <Nav.Item>
-                            <Nav.Link eventKey="home"> <img className="icon" src={require('../img/dashboardIcons/homeIcon1.svg')}/> </Nav.Link>
-                        </Nav.Item>
-
-                         {/* Display graphs when graph icon is selected */}
-                        <Nav.Item>
-                            <Nav.Link eventKey="graphs"> <img className="icon" src={require('../img/dashboardIcons/graphIcon.svg')}/> </Nav.Link>
-                        </Nav.Item>
+                        
+                        <button className='icon-tab' onClick={() => setHome(true)}><img className="icon" src={require('../img/dashboardIcons/homeIcon1.svg')}/></button>
+                       
+                      
+                        <button className='icon-tab' onClick={() => setHome(false)}><img className="icon" src={require('../img/dashboardIcons/graphIcon.svg')}/></button>
+                        
                         
                     </div>
                 </Nav>
@@ -46,46 +35,21 @@ const Dashboard = () => {
          
 
             <Row className="row-2">
-             <Col>
                 <div className="view-wrapper">
 
                     <div className="top-bar">
                         <h4>Hello User</h4>
                     </div>
-                    <Tab.Content>
-                        <div className="view-container">
-                            <div className="component-container">
-
-                                {/* Normal way - This way works but I dont like it  */}
-                                {/* <Route exact path="/" component={TestDoughnut} />
-                                <Route path="/graph" component={TestLine}  /> */}
-
-                                
-                                {/* Using React-bootstrap Tab method */}
-                                {/* Display graphs when home icon is selected, this pane should open by default first */}                
-                                <Tab.Pane active eventKey="home">
-                                    <h1>Home Page</h1> 
-                                    <p>Display graphs when home icon is selected, this pane should open by default first </p>
-                                    <NutriList />
-                                </Tab.Pane>
-
-                                {/* Display graphs when graph icon is selected */}
-                                <Tab.Pane eventKey="graphs">
-                                    <div className="container-one"> 
-                                      <TestDoughnut />
-                                    </div>
-
-                                    <div className="container-two"> 
-                                      <TestLine />
-                                    </div>
-                                </Tab.Pane>
-
-                            </div>
+                    <div className="view-container">
+                        <div className="component-container">
+                            {home ? <DashHome/> : <GraphContainer/>}
+                            {/* <Route exact path="/" component={DashHome} />
+                            <Route path="/graph" component={GraphContainer}  /> */}
                         </div>
-                    </Tab.Content>
+                    </div>
+
 
                 </div>
-             </Col>
             </Row>
         </TabContainer> 
     </div>
