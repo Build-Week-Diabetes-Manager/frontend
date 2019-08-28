@@ -43,7 +43,6 @@ console.log(users)
 const FormikUserFormLogin =  withFormik({
   mapPropsToValues({ username, password, tos }) {
     return {
-      tos: tos || false,
       password: password || '',
       username: username || ''
     };
@@ -55,7 +54,7 @@ const FormikUserFormLogin =  withFormik({
   }),
 
   handleSubmit(values, { props, setStatus }) {
-    console.log(values)
+    console.log("users value",values)
     axios
       .post('https://diabetesmanager.herokuapp.com/api/users/login', values)
       .then(res => {
