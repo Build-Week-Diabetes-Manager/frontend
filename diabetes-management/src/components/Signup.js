@@ -5,25 +5,22 @@ import { Form, Field, withFormik } from "formik";
 
  const SignUp = ({ errors, touched, values, status }) => {
 
-    const [newUsers, setNewUsers] = useState([]);
+    const [newUsers, setNewUsers] = useState({});
 
     useEffect(() => {
-        if (status) {  
-            console.log(status);           
+        if (status) {     
             setNewUsers([...newUsers, status]);
         }        
-    }, [status]);
+    }, [newUsers]);
 
-    
  return(
     <div className='user-form'> 
-    <h1>User</h1>
+    <h1> Make an Account </h1>
     <Form>
     <Field type="text" name="username" placeholder="Username" />
     {touched.username && errors.username && (
         <p className="error">{errors.username}</p>
     )}
-
 
     <Field type="password" name="password" placeholder="Password" />
     {touched.password && errors.password && (
@@ -43,13 +40,13 @@ const FormikUserSignUpForm = withFormik({
         return {
             username: username || '',
             password: password || '',
-            tos: tos || true
+            tos: true 
         };
     },
 
     validationSchema: Yup.object().shape({
-    username: Yup.string().required("Fill in the blank"),
-    password: Yup.string().required("Fill in the blank") 
+    username: Yup.string().required("Please Fill in the blank"),
+    password: Yup.string().required("Please Fill in the blank") 
     }),    
 
 
@@ -58,20 +55,20 @@ handleSubmit(values, { resetForm , props, setStatus }) {
         axios
         .post("https://diabetesmanager.herokuapp.com/api/users/register", values)
         .then(res => {
-            console.log(res);
+            console.log(res)
             setStatus(res.data); 
             props.history.push("/login")
             resetForm(); 
         })    
         .catch(error => {
             console.log("ERROR", error);
-        }); 
+        });
+       
 }
 })(SignUp);
 
-
-
 export default FormikUserSignUpForm;
+
 
 
 
