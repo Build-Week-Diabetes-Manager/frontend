@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 
 const UserForm = ({ errors, touched, values, handleSubmit, status }) => {
   const [users, setUsers] = useState([]);
+  const [isRegistered, setIsRegistered] =useState(false)
 console.log(users)
   useEffect(() => {
     if (status) {
@@ -23,16 +24,16 @@ console.log(users)
           <p className="error">{errors.username}</p>
         )}
 
-        
 
         <Field type="password" name="password" placeholder="Password" />
         {touched.password && errors.password && (
           <p className="error">{errors.password}</p>
         )}
 
-        <button type="submit">Login In!</button>
+
+        <button className="submit-btn"type="submit">Sign Up!</button>
       </Form>
-      
+      <button onClick={() => {isRegistered ? setIsRegistered(false) : setIsRegistered(true)}}className="register-btn">{isRegistered ? `Already have an account?` : `Don't Have An Account?`}</button>
     </div>
 
     </>
@@ -40,11 +41,11 @@ console.log(users)
 };
 
 
-const FormikUserFormLogin =  withFormik({
-  mapPropsToValues({ username, password, tos }) {
+const FormikUserForm = withFormik({
+  mapPropsToValues({ username, password }) {
     return {
       password: password || '',
-      username: username || ''
+      username: username || '',
     };
   },
 
@@ -67,3 +68,4 @@ const FormikUserFormLogin =  withFormik({
 })(UserForm);
 
 export default FormikUserFormLogin;
+

@@ -35,8 +35,8 @@ import { Form, Field, withFormik } from "formik";
 }
 
 
-const FormikUserFormSignup = withFormik({ 
-    mapPropsToValues({ username, password, tos}) {
+const FormikUserSignUpForm = withFormik({
+    mapPropsToValues({ username, email, password, tos}) {
         return {
             username: username || '',
             password: password || '',
@@ -52,9 +52,8 @@ const FormikUserFormSignup = withFormik({
 
 
 handleSubmit(values, { resetForm , props, setStatus }) {
-    console.log(values)
         axios
-        .post("https://diabetesmanager.herokuapp.com/api/users/register", {username: values.username, password: values.password})
+        .post("https://diabetesmanager.herokuapp.com/api/users/register", values)
         .then(res => {
             console.log(res)
             setStatus(res.data); 
@@ -68,7 +67,8 @@ handleSubmit(values, { resetForm , props, setStatus }) {
 }
 })(SignUp);
 
-export default FormikUserFormSignup;
+export default FormikUserSignUpForm;
+
 
 
 
