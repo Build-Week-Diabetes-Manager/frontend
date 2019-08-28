@@ -17,9 +17,9 @@ import { Form, Field, withFormik } from "formik";
     <div className='user-form'> 
     <h1> Make an Account </h1>
     <Form>
-    <Field type="text" name="name" placeholder="Name" />
-    {touched.name && errors.name && (
-        <p className="error">{errors.name}</p>
+    <Field type="text" name="username" placeholder="Username" />
+    {touched.username && errors.username && (
+        <p className="error">{errors.username}</p>
     )}
 
     <Field type="password" name="password" placeholder="Password" />
@@ -36,37 +36,35 @@ import { Form, Field, withFormik } from "formik";
 
 
 const FormikUserFormSignup = withFormik({ 
-    mapPropsToValues({ name, email, password, tos}) {
+    mapPropsToValues({ username, password, tos}) {
         return {
-            name: name || '',
-            email: email || '',
+            username: username || '',
             password: password || '',
             tos: tos || true
         };
     },
 
     validationSchema: Yup.object().shape({
-    name: Yup.string().required("Please Fill in the blank"),
+    username: Yup.string().required("Please Fill in the blank"),
     password: Yup.string().required("Please Fill in the blank") 
     }),    
 
 
 
-handleSubmit(values, { resetForm ,setErrors, setStatus }) {
-    if (values.email === 'John@Doe.com') {
-        setErrors({ email: 'That email is already taken'})
-    } else {
+handleSubmit(values, { resetForm , props, setStatus }) {
+    console.log(values)
         axios
         .post("https://diabetesmanager.herokuapp.com/api/users/register", values)
         .then(res => {
             console.log(res)
             setStatus(res.data); 
+            props.history.push("/login")
             resetForm(); 
         })    
         .catch(error => {
             console.log("ERROR", error);
         });
-    }   
+       
 }
 })(SignUp);
 
