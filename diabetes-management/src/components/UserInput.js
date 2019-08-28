@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
+import DateTimePicker from 'react-datetime-picker';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
 const glucoseOptions = [
@@ -18,7 +19,7 @@ const insulineType = [
     {value: 35, label: 'UltraLente insuline dose'},
 ]
 
-const Form = () => {
+const UserInput = () => {
 
     const [glucose, setGlucose] = useState({ timestamp: '', code: '', value: ''});
     const [dose, setDose] = useState({ timestamp: '', code: '', value: ''});
@@ -32,10 +33,20 @@ const Form = () => {
         setGlucose({ ...glucose, value: parseInt(event.target.value) })
     };
 
-    const handleSubmit = event => {
+    const handleDoseChange = event => {
+        setDose({ ...dose, [event.target.name]: event.target.value })
+    };
+
+    const handleGlucoseSubmit = event => {
         event.preventDefault();
         setGlucose({...glucose, timestamp: currentTime()})
         console.log(glucose);
+    }
+
+    const handleDoseSubmit = event => {
+        event.preventDefault();
+        setDose({...dose, timestamp: currentTime()})
+        console.log(dose);
     }
 
     const currentTime = () => {
@@ -44,7 +55,8 @@ const Form = () => {
     }
 
     return (
-        <form onSubmit={event => handleSubmit(event)}>
+        <>
+        <form onSubmit={event => handleGlucoseSubmit(event)}>
             <label>Glucose Measurement Time</label>
             <Select
                 value={glucose.code}
@@ -55,7 +67,23 @@ const Form = () => {
             <input type="number" name="glucose measurement" onChange={event => handleGlucoseChange(event)} value={glucose.value} />
             <button type="submit">Submit</button>
         </form>
+        {/* <form onSubmit={event => handleDoseSubmit(event)}>
+            <label>
+                Regular insuline:
+                <input type="number" name={33} onChange={event => handleDoseChange(event)} value={dose.value} />
+            </label>
+            <label>
+                NPH Insuline:
+                <input type="number" name={34} onChange={event => handleDoseChange(event)} value={dose.value} />
+            </label>
+            <label>
+                UltraLente Insuline:
+                <input type="number" name={35} onChange={event => handleDoseChange(event)} value={dose.value} />
+            </label>
+            <button>Submit</button>
+        </form> */}
+        </>
     )
 }
 
-export default Form;
+export default UserInput;
