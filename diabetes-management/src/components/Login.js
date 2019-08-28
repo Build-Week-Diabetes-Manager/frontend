@@ -30,6 +30,7 @@ console.log(users)
           <p className="error">{errors.password}</p>
         )}
 
+
         <button className="submit-btn"type="submit">Sign Up!</button>
       </Form>
       <button onClick={() => {isRegistered ? setIsRegistered(false) : setIsRegistered(true)}}className="register-btn">{isRegistered ? `Already have an account?` : `Don't Have An Account?`}</button>
@@ -54,6 +55,7 @@ const FormikUserForm = withFormik({
   }),
 
   handleSubmit(values, { props, setStatus }) {
+    console.log("users value",values)
     axios
       .post('https://diabetesmanager.herokuapp.com/api/users/login', values)
       .then(res => {
@@ -65,5 +67,5 @@ const FormikUserForm = withFormik({
   }
 })(UserForm);
 
-export default FormikUserForm;
+export default FormikUserFormLogin;
 
