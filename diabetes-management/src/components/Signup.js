@@ -19,30 +19,16 @@ import { Form, Field, withFormik } from "formik";
     <div className='user-form'> 
     <h1>User</h1>
     <Form>
-    <Field type="text" name="name" placeholder="Name" />
-    {touched.name && errors.name && (
-        <p className="error">{errors.name}</p>
+    <Field type="text" name="username" placeholder="Username" />
+    {touched.username && errors.username && (
+        <p className="error">{errors.username}</p>
     )}
 
-    <Field type="email" name="email" placeholder="Email" />
-    {touched.email && errors.email && (
-          <p className="error">{errors.email}</p>
-        )}
 
     <Field type="password" name="password" placeholder="Password" />
     {touched.password && errors.password && (
           <p className="error">{errors.password}</p>
         )}
-
-    <label className="checkbox-container">
-          Accept Terms of Service
-          <Field
-            type="checkbox"
-            name="tos"
-            checked={values.tos}
-          />
-          <span className="checkmark" />
-        </label>
 
     <button type='submit'>Sign Up</button>
      
@@ -53,38 +39,33 @@ import { Form, Field, withFormik } from "formik";
 
 
 const FormikUserSignUpForm = withFormik({
-    mapPropsToValues({ name, email, password, tos}) {
+    mapPropsToValues({ username, email, password, tos}) {
         return {
-            name: name || '',
-            email: email || '',
+            username: username || '',
             password: password || '',
             tos: tos || true
         };
     },
 
     validationSchema: Yup.object().shape({
-    name: Yup.string().required("Fill in the blank"),
-    email: Yup.string().required("Fill in the blank"),
+    username: Yup.string().required("Fill in the blank"),
     password: Yup.string().required("Fill in the blank") 
     }),    
 
 
 
-handleSubmit(values, { resetForm ,setErrors, setStatus }) {
-    if (values.email === 'John@Doe.com') {
-        setErrors({ email: 'That email is already taken'})
-    } else {
+handleSubmit(values, { resetForm , props, setStatus }) {
         axios
         .post("", values)
         .then(res => {
             console.log(res);
             setStatus(res.data); 
+            props.history.push("/login")
             resetForm(); 
         })    
         .catch(error => {
             console.log("ERROR", error);
-        });
-    }   
+        }); 
 }
 })(SignUp);
 
