@@ -31,7 +31,7 @@ console.log(users)
         )}
 
 
-        <button className="submit-btn"type="submit">Sign Up!</button>
+        <button className="submit-btn"type="submit">Login!</button>
       </Form>
       <button onClick={() => {isRegistered ? setIsRegistered(false) : setIsRegistered(true)}}className="register-btn">{isRegistered ? `Already have an account?` : `Don't Have An Account?`}</button>
     </div>
