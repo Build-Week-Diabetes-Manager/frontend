@@ -30,7 +30,7 @@ console.log(users)
           <p className="error">{errors.password}</p>
         )}
 
-        <button type="submit">Sign Up!</button>
+        <button type="submit">Login In!</button>
       </Form>
       
     </div>
@@ -54,7 +54,7 @@ const FormikUserFormLogin =  withFormik({
     password: Yup.string().required('Please enter a password')
   }),
 
-  handleSubmit(values, {props, setStatus }) {
+  handleSubmit(values, { props, setStatus }) {
     console.log(values)
     axios
       .post('https://diabetesmanager.herokuapp.com/api/users/login', values)
