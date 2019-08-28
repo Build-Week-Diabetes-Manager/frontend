@@ -1,34 +1,37 @@
 import React from 'react';
-
-import FormikUserForm from './components/Login'
 import PrivateRoute from './components/PrivateRoute'
-import {Navbar} from './components/Navbar'
+// import { NavBar} from './components/Navbar'
 import Dashboard from './components/Dashboard'
-import { BrowserRouter as Router, Route } from "react-router-dom";
-
-
-
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Login from "./components/Login.js"; 
+// import setUsers from "./components/Login.js"; 
 import './App.css';
-import Signup from "./components/Signup.js"; 
-
+import FormikUserFormLogin from './components/Login'
+import FormikUserFormSignup from './components/Signup.js'
+// import Signup from "./components/Signup.js"; 
 
 
 function App() {
   return (
-    <Router>
-    <div className="App">
+    <Router> 
 
-    
-
-      <Navbar/>
-      <div className="container">
-    <Route exact path="/Login" component={FormikUserForm} />
-    <Route exact path="/Register" component={Signup} />
+<div className="App">
+     <Link to="/Dashboard"> Sign Up </Link> 
+    <Link to="/login"> Login </Link>
+    </div> 
+    <div className="container"> 
+    <Route path="/Login" render={props => <FormikUserFormLogin {...props } />} />
+    <Route path="/Register" render={props => <FormikUserFormSignup {...props } />} />
     <PrivateRoute exact path="/Dashboard" component={Dashboard} />
     </div>
-
-    </div>
     </Router>
+    
+      
+    
+  
+   
+    
+    
   );
 }
 export default App;
