@@ -8,6 +8,9 @@ import PrivateRoute from './components/PrivateRoute'
 import {Navbar} from './components/Navbar';
 import Dashboard from './components/Dashboard';
 
+// Test Semantic UI tabs
+// import DashboardPointing from './components/DashboardTest';
+
 
 
 import './App.scss';
@@ -16,7 +19,6 @@ import './App.scss';
 
 function App() {
   return (
-    <Router>
     <div className="App">
       <Navbar/>
 
@@ -30,9 +32,9 @@ function App() {
       </div>
 
       <Dashboard />
+      {/* <DashboardPointing /> */}
 
-    </div>
-    </Router>
+    </div> 
   );
 }
 export default App;

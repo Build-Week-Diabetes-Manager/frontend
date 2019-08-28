@@ -3,6 +3,7 @@ import {  Route, NavLink } from "react-router-dom";
 import { TabContainer, Container, Row, Col, Tab, Nav } from 'react-bootstrap';
 import TestDoughnut from './ChartThree.js'
 import TestLine from './ChartTwo.js';
+import NutriList from './NutriList.js';
 
 const Dashboard = () => {
     const [tab, setTab] = useState();
@@ -65,6 +66,7 @@ const Dashboard = () => {
                                 <Tab.Pane active eventKey="home">
                                     <h1>Home Page</h1> 
                                     <p>Display graphs when home icon is selected, this pane should open by default first </p>
+                                    <NutriList />
                                 </Tab.Pane>
 
                                 {/* Display graphs when graph icon is selected */}
