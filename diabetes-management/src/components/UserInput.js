@@ -75,6 +75,7 @@ const Form = () => {
         setGlucose({...glucose, timestamp: currentTime()})
         console.log(glucose);
         post(glucose);
+
         // axiosWithAuth()
         //     .post(`https://diabetesmanager.herokuapp.com/api/manager/manage`,glucose)
         //     .then(res => console.log('post res', res))
