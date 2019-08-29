@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import {  Route, NavLink } from "react-router-dom";
 import { TabContainer, Container, Row, Col, Tab, Nav } from 'react-bootstrap';
 import TestDoughnut from './ChartThree.js'
@@ -6,10 +6,12 @@ import TestLine from './ChartTwo.js';
 import NutriList from './NutriList.js';
 import GraphContainer from './GraphContainer.js'; 
 import DashHome from './DashHome.js';
+import UserContext  from "../provider/UserProvider"
 
 const Dashboard = () => {
     const [tab, setTab] = useState();
     const [home, setHome] =useState(true);
+    // const {user} = useContext(UserContext)
 
     return (
     <div className="Container dashboard-container">  
@@ -38,7 +40,9 @@ const Dashboard = () => {
                 <div className="view-wrapper">
 
                     <div className="top-bar">
-                        <h4>Hello User</h4>
+                    <h4> Hello User </h4>
+                        {/* <h4>{user.message}</h4> */}
+                        {/* {console.log("USEEER", user)} */}
                     </div>
                     <div className="view-container">
                         <div className="component-container">
