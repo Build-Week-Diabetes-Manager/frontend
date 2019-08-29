@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext} from 'react';
+import {UserContext} from "../provider/UserProvider"
 import axios from 'axios';
 import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
@@ -14,6 +15,8 @@ console.log(users)
       setUsers([...users, status]);
     }
   }, [status]);
+
+  const {user, setUser} = useContext(UserContext)
 
   return (
       <>
@@ -53,7 +56,7 @@ const FormikUserFormLogin = withFormik({
   }),
   
 
-  handleSubmit(values, { props, setStatus }) {
+  handleSubmit(values, { props, setStatus, setUser }) {
     console.log("users value",values)
     axios
       .post('https://diabetesmanager.herokuapp.com/api/users/login', values)
@@ -63,6 +66,7 @@ const FormikUserFormLogin = withFormik({
         props.history.push("/dashboard")
         localStorage.setItem("token", res.data.token)
         console.log(res.data)
+        setUser({message: res.data.message})
       })
       .catch(err => console.log(err.response));
   }
