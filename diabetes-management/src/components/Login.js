@@ -31,7 +31,7 @@ console.log(users)
         )}
         <button className="submit-btn" type="submit">Login!</button>
       </Form>
-      <button className="switch-route"><Link className="route-link" to="/signup"> Don't Have An Account? </Link> </button>
+      <button className="switch-route"><Link className="route-link" to="/"> Don't have an account? Click here to sign up.</Link> </button>
     </div>
 
     </>

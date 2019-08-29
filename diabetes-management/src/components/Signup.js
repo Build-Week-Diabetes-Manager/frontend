@@ -32,7 +32,7 @@ import '../App.scss';
     <button className='submit-btn'type='submit'>Sign Up</button>
      
     </Form> 
-    <button className="switch-route"><Link className="route-link" to="/login"> Already Have An Account? </Link> </button>
+    <button className="switch-route"><Link className="route-link" to="/login"> Already have an account? Click here to sign in. </Link> </button>
     </div>
  )   
 }

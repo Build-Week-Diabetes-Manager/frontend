@@ -8,24 +8,25 @@ import Dashboard from './components/Dashboard'
 import FormikUserFormLogin from './components/Login'
 import FormikUserFormSignup from './components/Signup.js'
 import Login from "./components/Login.js"; 
-
+import Navbar from './components/Navbar'
 
 
 
 function App() {
   return (
-    <Router> 
+
 
 <div className="App">
-   
-    </div> 
+<Navbar/>
     <div className="container"> 
-    <Route path="/Login" render={props => <FormikUserFormLogin {...props } />} />
-    <Route path="/Signup" render={props => <FormikUserFormSignup {...props } />} />
+
+    <Route exact path="/Login" render={props => <FormikUserFormLogin {...props } />} />
+    <Route exact path="/" render={props => <FormikUserFormSignup {...props } />} />
     <PrivateRoute exact path="/Dashboard" component={Dashboard} />
     </div>
+      
+    </div> 
    
-    </Router>
   );
 }
 export default App;
