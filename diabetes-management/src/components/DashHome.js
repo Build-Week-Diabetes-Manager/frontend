@@ -5,7 +5,7 @@ const DashHome = () => {
 
 
   return(
-    <div active eventKey="home">
+    <div>
         <h1>Home Page</h1> 
         <p>Display graphs when home icon is selected, this pane should open by default first </p>
         <NutriList />
