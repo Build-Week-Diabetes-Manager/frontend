@@ -14,7 +14,6 @@ export default function NutriList() {
     useEffect(() => {
         
             axios
-            // .get('https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=QjBnb0Nbxp5k6huDhFLuG5qUijWWSDoh7U3R2Vh7&location=Denver+CO')
             .get('https://api.nal.usda.gov/ndb/nutrients/?format=json&api_key=DEMO_KEY&nutrients=205&nutrients=204&nutrients=208&nutrients=269')
             .then( resp => {
                 setKey(resp.data.report.foods)

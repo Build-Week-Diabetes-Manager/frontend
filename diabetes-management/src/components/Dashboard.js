@@ -20,7 +20,7 @@ const Dashboard = () => {
                     <div className="icon-container">
                         {/*Diabetes Manager Logo */}
                         <img className="icon logo" src={require('../img/dashboardIcons/Logo1.svg')}/>
-
+        
                         
                         <button className='icon-tab' onClick={() => setHome(true)}><img className="icon" src={require('../img/dashboardIcons/homeIcon1.svg')}/></button>
                        
