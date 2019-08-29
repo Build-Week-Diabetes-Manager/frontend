@@ -31,6 +31,7 @@ const Form = () => {
     //add put and delete functionality
     //use newer post function
     //change default state values to null
+    //check state.code/state.value and only post if it exists
 
     // const handleSelector = (event, setter, state) => {
     //     setter({ ...state, code: event.target.value })
@@ -73,7 +74,8 @@ const Form = () => {
         event.preventDefault();
         setGlucose({...glucose, timestamp: currentTime()})
         console.log(glucose);
-        post(glucose)
+        post(glucose);
+
         // axiosWithAuth()
         //     .post(`https://diabetesmanager.herokuapp.com/api/manager/manage`,glucose)
         //     .then(res => console.log('post res', res))

@@ -16,7 +16,7 @@ console.log(users)
     }
   }, [status]);
 
-  const {user, setUser} = useContext(UserContext)
+  // const {user, setUser} = useContext(UserContext)
 
   return (
       <>
@@ -56,7 +56,7 @@ const FormikUserFormLogin = withFormik({
   }),
   
 
-  handleSubmit(values, { props, setStatus, setUser }) {
+  handleSubmit(values, { props, setStatus }) {
     console.log("users value",values)
     axios
       .post('https://diabetesmanager.herokuapp.com/api/users/login', values)
@@ -66,7 +66,7 @@ const FormikUserFormLogin = withFormik({
         props.history.push("/dashboard")
         localStorage.setItem("token", res.data.token)
         console.log(res.data)
-        setUser({message: res.data.message})
+        // setUser({message: res.data.message})
       })
       .catch(err => console.log(err.response));
   }

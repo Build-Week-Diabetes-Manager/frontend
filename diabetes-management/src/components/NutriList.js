@@ -20,11 +20,11 @@ export default function NutriList() {
     useEffect(() => {
         
             axios
-            .get('https://api.nal.usda.gov/ndb/nutrients/?format=json&api_key=DEMO_KEY&nutrients=204')
+            .get(`https://api.nal.usda.gov/ndb/search/?format=json&q=apple&sort=n&max=25&offset=0&api_key=dCI2jG9Xjje6T5rvhUL09LQFpjRn5zM67aLtYIu7`)
             .then( resp => {
-                setFood(resp.data.report.foods);
+                // setFood(resp.data.report.foods);
                 setLoading(false);
-                // console.log("resp: ", resp.data.report.foods[0]);
+                console.log("resp.data.list: ", resp.data.list);
             })
             .catch( error =>{
                 console.log("Axios Err: ", error);
@@ -42,7 +42,7 @@ export default function NutriList() {
     
 
        axios
-        .get(`https://api.nal.usda.gov/ndb/nutrients/?format=json&api_key=DEMO_KEY&nutrients=${searchValue}`)
+        .get(`https://api.nal.usda.gov/ndb/search/?format=json&q=${searchValue}&sort=n&max=25&offset=0&api_key=dCI2jG9Xjje6T5rvhUL09LQFpjRn5zM67aLtYIu7 `)
         .then( response => {
             if(response.response === "True") {
                 setFood(response.Search);
