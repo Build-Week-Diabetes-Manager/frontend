@@ -5,8 +5,8 @@ const DashHome = () => {
 
 
   return(
-    <div>
-        {/* <NutriList /> */}
+    <div className="food-wrapper">
+        <NutriList />
     </div>
   )
 }

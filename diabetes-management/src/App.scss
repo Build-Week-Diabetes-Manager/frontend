@@ -107,6 +107,10 @@ body {
 
 
 }
+.nutriList{
+  max-height: 500px;
+  overflow: auto;
+}
 
 .nutriCard{
   text-align: center;
@@ -269,4 +273,8 @@ button.outline {
 }
 .icon-tab{
   border:none;
+}
+.food-wrapper{
+  grid-column-start:1;
+  grid-column-end: 3;
 }
