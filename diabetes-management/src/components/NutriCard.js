@@ -1,17 +1,24 @@
 import React from "react";
 import { Card } from 'semantic-ui-react';
 
-export default function NutriCard(el) {
-  const { name, item, id } = el;
+export default function NutriCard(props) {
 
-  console.log("el: ", el.item.nutrients);
+
+  // console.log("el: ", props.item.nutrients);
+
+  axios
+  .get(`https://api.nal.usda.gov/ndb/reports/?ndbno=${props.item.ndbno}&type=f&format=json&api_key=DEMO_KEY`)
+  .then(res =>
+    console.log(res)
+    )
 
   return (
-      <div className="nutriCard" key={el.id}>
-        <h2> Name: {el.item.name} </h2>
-        <p> Serving Size: { el.item.measure} </p>
+      <div className="nutriCard" key={props.item.name}>
+        <h2> Name: {props.item.name} </h2>
+        <h3> NDBNO: {props.item.ndbno} </h3>
+        {/* <p> Serving Size: { props.item.measure} </p>
         <h3> Nutrients</h3>
-        <p> Calories: {el.item.nutrients[0].value} {el.item.nutrients[0].unit} </p>
+        <p> Calories: {el.item.nutrients[0].value} {el.item.nutrients[0].unit} </p> */}
         {/* <p>{el.item.nutrients[1].nutrient}: {el.item.nutrients[1].value} {el.item.nutrients[1].unit} </p>
         <p>{el.item.nutrients[2].nutrient}: {el.item.nutrients[2].value} {el.item.nutrients[2].unit} </p>
         <p>{el.item.nutrients[3].nutrient}: {el.item.nutrients[3].value} {el.item.nutrients[3].unit} </p> */}

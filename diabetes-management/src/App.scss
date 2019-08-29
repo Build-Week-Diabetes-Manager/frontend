@@ -133,7 +133,9 @@ body {
   min-height: 500px;
   
   .container-one{
-    text-align: center;
+
+    display:flex;
+    flex-direction:column;    text-align: center;
     box-shadow: 0 5px 13px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     border-radius: 5px;
     padding: 1em;
@@ -156,7 +158,27 @@ body {
     padding: 1em;
   }
 }
+
 /* USER FORM */
+  .user-input{
+    background-color: white;
+    box-shadow: 0 5px 13px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+    border-radius: 5px;
+    padding: 1em;
+    text-align: center;
+  }
+
+
+  .insuline-type{
+    border:1px solid black;
+
+    .insuline-type-checkbox{
+      display:flex;
+      flex-direction: row;
+    }
+  }
+  
 .user-form {
   width: 500px;
   height: max-content;

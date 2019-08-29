@@ -18,7 +18,7 @@ const GraphContainer = () =>{
 
             <div className="user-input"> 
             <p> Please input your glucose measurement and the time you took the measurement below </p>
-                <UserInput />
+                <UserInput className="UserInput" />
             </div>
         </>
     )

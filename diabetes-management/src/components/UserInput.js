@@ -63,8 +63,9 @@ const Form = () => {
 
     // const post = (state) => {
     //     if(state.timestamp) {
-    //         axiosWithAuth()
-    //         .post(`https://diabetesmanager.herokuapp.com/api/manager/manage`,state)
+    //         axiohttps://diabetesmanager.herokuapp.com/api/manager/manage/ds
+            .then(res => console.log('ds res', res))
+            .catch(err => console.error(err));    //         .post(`https://diabetesmanager.herokuapp.com/api/manager/manage`,state)
     //         .then(res => console.log('post res', res))
     //         .catch(err => console.error(err))
     //     }
@@ -153,21 +154,27 @@ const Form = () => {
             <button type="submit">Submit</button>
         </form>
         <form onSubmit={event => handleDoseSubmit(event, setRegular, regular)}>
-        <input type="checkbox" name={33} value={33} onChange={event => handleRegularSelect(event)}/>
+
         <label>
+        <input type="checkbox" name={33} value={33} onChange={event => handleRegularSelect(event)}/>
             Regular insuline:
             <input type="number" name={33} onChange={event => handleRegularChange(event)} value={regular.value} />
         </label>
-        <input type="checkbox" name={34} value={34} onChange={event => handleNphSelect(event)}/>
+
         <label>
+        <input type="checkbox" name={34} value={34} onChange={event => handleNphSelect(event)}/>
             NPH Insuline:
             <input type="number" name={34} onChange={event => handleNphChange(event)} value={nph.value} />
         </label>
-        <input type="checkbox" name={35} value={35} onChange={event => handleUltraLenteSelect(event)}/>
-        <label>
-            UltraLente Insuline:
+
+        <label className="insuline-type">
+            <span className="insuline-type-checkbox">
+                <h4>UltraLente Insuline:</h4>
+                <input type="checkbox" name={35} value={35} onChange={event => handleUltraLenteSelect(event)}/>
+            </span>
             <input type="number" name={35} onChange={event => handleUltraLenteChange(event)} value={UltraLente.value} />
         </label>
+
         <button>Submit</button>  
         </form> 
         </>
