@@ -21,7 +21,7 @@ const insulineType = [
     {value: 35, label: 'UltraLente insuline dose'},
 ]
 
-const Form = () => {
+const Form = (props) => {
 
     const [glucose, setGlucose] = useState({ timestamp: '', code: '', value: ''});
 
@@ -59,9 +59,11 @@ const Form = () => {
     const post = (state) => {
         axiosWithAuth()
             .post(`https://diabetesmanager.herokuapp.com/api/manager/manage`,state)
-            .then(res => console.log('post res', res))
+            .then(res => {
+                console.log('post res', res);
+                getData(state);
+            })
             .catch(err => console.error(err))
-        getData(state);
     };
 
     // const dsPost = (state) => {
@@ -87,6 +89,7 @@ const Form = () => {
         setGlucose({...glucose, timestamp: currentTime()})
         console.log(glucose);
         post(glucose);
+        props.getData(glucose); //maybe delete later
     };
 
     //refactor to check if state is complete, and modularize
@@ -99,6 +102,9 @@ const Form = () => {
         post(regular);
         post(nph);
         post(UltraLente);
+        props.getData(regular); //maybe delete later
+        props.getData(nph); //maybe delete later
+        props.getData(UltraLente); //maybe delete later
         // dsPost(glucose, regular, nph, UltraLente);
     };
 
@@ -137,42 +143,43 @@ const Form = () => {
 
     return (
         <>
-        <form onSubmit={event => handleGlucoseSubmit(event)}>
-            <label>Glucose Measurement Time</label>
-            <Select
-                value={glucose.code}
+        <form className='user-input-form'onSubmit={event => handleGlucoseSubmit(event)}>
+            <label><p>Glucose Measurement Time</p></label>
+            <Select className='select-drop'
+                // value={glucose.code} commented out to get values to display in select dropdown
                 onChange={event => handleGlucoseSelect(event)}
                 options={glucoseOptions}
+                placeholder="Select the time of measurement"
             />
-            <label>Glucose Measurement</label>
-            <input type="number" name="glucose measurement" onChange={event => handleGlucoseChange(event)} value={glucose.value} />
+            <label><p>Glucose Measurement</p></label>
+            <input type="number" className='insulin-input' placeholder="Enter your blood glucose in mg/dl" name="glucose measurement" onChange={event => handleGlucoseChange(event)} value={glucose.value} />
             <button className="button-style-1" type="submit">Submit</button>
         </form>
 
-        <form onSubmit={event => handleDoseSubmit(event, setRegular, regular)}>
+        <form className='user-input-form' onSubmit={event => handleDoseSubmit(event, setRegular, regular)}>
 
         <label>
             <div className="insulin-type">
-                Regular insuline:
-                <input type="checkbox" name={33} value={33} onChange={event => handleRegularSelect(event)}/>
+                <p>Regular insuline:</p>
+                <input className='in-check'type="checkbox" name={33} value={33} onChange={event => handleRegularSelect(event)}/>
             </div>
-                <input type="number" name={33} onChange={event => handleRegularChange(event)} value={regular.value} />
+                <input className="insulin-input" placeholder="Enter your blood glucose in mg/dl" type="number" name={33} onChange={event => handleRegularChange(event)} value={regular.value} />
         </label>
 
         <label>
             <div className="insulin-type">
-                NPH Insuline:
-                <input type="checkbox" name={34} value={34} onChange={event => handleNphSelect(event)}/>
+                <p>NPH Insuline:</p>
+                <input className='in-check' type="checkbox" name={34} value={34} onChange={event => handleNphSelect(event)}/>
             </div>
-                <input type="number" name={34} onChange={event => handleNphChange(event)} value={nph.value} />
+                <input className="insulin-input" placeholder="Enter your blood glucose in mg/dl" type="number" name={34} onChange={event => handleNphChange(event)} value={nph.value} />
         </label>
 
         <label>
             <div className="insulin-type">
-                UltraLente Insuline:
-                <input className="checkbox" type="checkbox" name={35} value={35} onChange={event => handleUltraLenteSelect(event)}/>
+                <p>UltraLente Insuline:</p>
+                <input className='in-check' type="checkbox" name={35} value={35} onChange={event => handleUltraLenteSelect(event)}/>
             </div>
-                <input type="number" name={35} onChange={event => handleUltraLenteChange(event)} value={UltraLente.value} />
+                <input className="insulin-input" placeholder="Enter your blood glucose in mg/dl" type="number" name={35} onChange={event => handleUltraLenteChange(event)} value={UltraLente.value} />
 
         </label>
 

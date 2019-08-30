@@ -15,7 +15,6 @@ console.log(users)
     }
   }, [status]);
 
-  // const {user, setUser} = useContext(UserContext)
 
   return (
       <>
@@ -65,7 +64,6 @@ const FormikUserFormLogin = withFormik({
         props.history.push("/dashboard")
         localStorage.setItem("token", res.data.token)
         console.log(res.data)
-        // setUser({message: res.data.message})
       })
       .catch(err => console.log(err.response));
   }
