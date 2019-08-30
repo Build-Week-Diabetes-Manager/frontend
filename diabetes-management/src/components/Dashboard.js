@@ -6,7 +6,7 @@ import TestLine from './ChartTwo.js';
 import NutriList from './NutriList.js';
 import GraphContainer from './GraphContainer.js'; 
 import DashHome from './DashHome.js';
-// import UserContext  from "../provider/UserProvider"
+
 
 const Dashboard = () => {
     const [tab, setTab] = useState();
@@ -21,7 +21,7 @@ const Dashboard = () => {
                 <Nav className="flex-column">
                     <div className="icon-container">
                         {/*Diabetes Manager Logo */}
-                        <img className="icon logo" src={require('../img/dashboardIcons/Logo1.svg')}/>
+                        <img className="icon logo" src={require('../img/favicon/insulineIcon.svg')}/>
         
                         
                         <button className='icon-tab' onClick={() => setHome(true)}><img className="icon" src={require('../img/dashboardIcons/homeIcon1.svg')}/></button>
@@ -61,3 +61,5 @@ const Dashboard = () => {
     )
 }
 export default Dashboard
+
+// [{"timestamp": "2000-10-10 8:10","code": 33,"value": 10.1,"user_id": 1},{"timestamp": "2000-10-10 8:10","code": 59,"value": 100.1,"user_id": 1},{"timestamp": "2000-10-10 12:10","code": 60,   "value": 180.1,"user_id": 1},{"timestamp": "2000-10-10 20:10","code": 63,"value": 250.1,      "user_id": 1},{"timestamp": "2000-10-10 23:10","code": 57,"value": 300.1,"user_id": 1},     {"timestamp": "2000-10-11 8:10","code": 33,"value": 5.1,"user_id": 1},{"timestamp": "2000-10-11 8:10","code": 59,"value": 150.1,"user_id": 1}]

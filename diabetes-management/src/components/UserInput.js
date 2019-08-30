@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
+import { connect } from 'react-redux';
 import DateTimePicker from 'react-datetime-picker';
 import axiosWithAuth from '../utils/axiosWithAuth';
+import { getData } from '../actions/dataActions';
 
 const glucoseOptions = [
     { value: 57, label: 'unspecified blood glucose measurement' },
@@ -59,7 +61,17 @@ const Form = () => {
             .post(`https://diabetesmanager.herokuapp.com/api/manager/manage`,state)
             .then(res => console.log('post res', res))
             .catch(err => console.error(err))
+        getData(state);
     };
+
+    // const dsPost = (state) => {
+    //     const arr = [];
+    //     arr.push(state);
+    //     axiosWithAuth()
+    //         .post(`https://diabetesmanager.herokuapp.com/api/manager/manage`,arr)
+    //         .then(res => console.log('ds res', res))
+    //         .catch(err => console.error(err))
+    // }
 
     // const post = (state) => {
     //     if(state.timestamp) {
@@ -75,11 +87,6 @@ const Form = () => {
         setGlucose({...glucose, timestamp: currentTime()})
         console.log(glucose);
         post(glucose);
-
-        // axiosWithAuth()
-        //     .post(`https://diabetesmanager.herokuapp.com/api/manager/manage`,glucose)
-        //     .then(res => console.log('post res', res))
-        //     .catch(err => console.error(err))
     };
 
     //refactor to check if state is complete, and modularize
@@ -92,18 +99,7 @@ const Form = () => {
         post(regular);
         post(nph);
         post(UltraLente);
-        // axiosWithAuth()
-        //     .post(`https://diabetesmanager.herokuapp.com/api/manager/manage`,regular)
-        //     .then(res => console.log('post res', res))
-        //     .catch(err => console.error(err))
-        // axiosWithAuth()
-        //     .post(`https://diabetesmanager.herokuapp.com/api/manager/manage`,nph)
-        //     .then(res => console.log('post res', res))
-        //     .catch(err => console.error(err))
-        // axiosWithAuth()
-        //     .post(`https://diabetesmanager.herokuapp.com/api/manager/manage`,UltraLente)
-        //     .then(res => console.log('post res', res))
-        //     .catch(err => console.error(err))
+        dsPost(glucose, regular, nph, UltraLente);
     };
 
     // const handleDoseSelect = (event, setter, state) => {
@@ -150,28 +146,42 @@ const Form = () => {
             />
             <label>Glucose Measurement</label>
             <input type="number" name="glucose measurement" onChange={event => handleGlucoseChange(event)} value={glucose.value} />
-            <button type="submit">Submit</button>
+            <button className="button-style-1" type="submit">Submit</button>
         </form>
+
         <form onSubmit={event => handleDoseSubmit(event, setRegular, regular)}>
-        <input type="checkbox" name={33} value={33} onChange={event => handleRegularSelect(event)}/>
+
         <label>
-            Regular insuline:
-            <input type="number" name={33} onChange={event => handleRegularChange(event)} value={regular.value} />
+            <div className="insulin-type">
+                Regular insuline:
+                <input type="checkbox" name={33} value={33} onChange={event => handleRegularSelect(event)}/>
+            </div>
+                <input type="number" name={33} onChange={event => handleRegularChange(event)} value={regular.value} />
         </label>
-        <input type="checkbox" name={34} value={34} onChange={event => handleNphSelect(event)}/>
+
         <label>
-            NPH Insuline:
-            <input type="number" name={34} onChange={event => handleNphChange(event)} value={nph.value} />
+            <div className="insulin-type">
+                NPH Insuline:
+                <input type="checkbox" name={34} value={34} onChange={event => handleNphSelect(event)}/>
+            </div>
+                <input type="number" name={34} onChange={event => handleNphChange(event)} value={nph.value} />
         </label>
-        <input type="checkbox" name={35} value={35} onChange={event => handleUltraLenteSelect(event)}/>
+
         <label>
-            UltraLente Insuline:
-            <input type="number" name={35} onChange={event => handleUltraLenteChange(event)} value={UltraLente.value} />
+            <div className="insulin-type">
+                UltraLente Insuline:
+                <input className="checkbox" type="checkbox" name={35} value={35} onChange={event => handleUltraLenteSelect(event)}/>
+            </div>
+                <input type="number" name={35} onChange={event => handleUltraLenteChange(event)} value={UltraLente.value} />
+
         </label>
-        <button>Submit</button>  
+
+        <button className="button-style-1">Submit</button>  
         </form> 
         </>
     )
 }
-
-export default Form;
+export default connect(
+    mapStateToProps, 
+    { getData }
+)(Form);

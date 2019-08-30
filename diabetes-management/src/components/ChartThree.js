@@ -26,7 +26,7 @@ const data = {
       pointHoverBorderWidth: 2,
       pointRadius: 1,
       pointHitRadius: 10,
-      data: [80,120]
+      data: [35,120]
     },
     {
         label: 'Actual Glucose Level',

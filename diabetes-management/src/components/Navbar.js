@@ -10,10 +10,11 @@ export const Navbar = () => {
 return (
   
 <div className="navbar">
-<h3>Diabetes Manager</h3>
+<img className="mainLogo" src={require('../img/logo/InsulineLogo.svg') } href="/" alt="Insuline Logo"/>
 </div>
     )
 }
+
 export default Navbar;
 
  {/* <>
