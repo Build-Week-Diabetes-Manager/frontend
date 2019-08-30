@@ -13,7 +13,7 @@ const initialState = {
         "Pre-supper measurement": "",
         "Post-supper measurement": ""
     },
-    isLoading: false;
+    isLoading: false,
     error: ""
 }
 
