@@ -1,15 +1,18 @@
-import React from "react";
+import React, {useState} from "react";
+import axios from "axios";
 import { Card } from 'semantic-ui-react';
 
 export default function NutriCard(props) {
+const [nbdnoFood, setNbdnoFood]= useState('')
 
+  console.log(nbdnoFood)
 
-  // console.log("el: ", props.item.nutrients);
-
+  
   axios
-  .get(`https://api.nal.usda.gov/ndb/reports/?ndbno=${props.item.ndbno}&type=f&format=json&api_key=DEMO_KEY`)
+  .get(`https://api.nal.usda.gov/ndb/reports/?ndbno=${props.item.ndbno}&type=f&format=json&api_key=dCI2jG9Xjje6T5rvhUL09LQFpjRn5zM67aLtYIu7`)
   .then(res =>
-    console.log(res)
+  
+    setNbdnoFood(res.data.report.food)
     )
 
   return (
