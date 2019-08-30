@@ -9,7 +9,7 @@ $color-spearmint: #00bd9b;
 
 
 /* Font Imports */
-@import url('https://fonts.googleapis.com/css?family=Muli|Vollkorn&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap');
 
 // For Headings: font-family: 'Vollkorn', serif;
 // For Rest: font-family: 'Muli', sans-serif;
@@ -19,36 +19,42 @@ $color-spearmint: #00bd9b;
   color: #424242;
 }
 
-#root,
+
 html,
 body {
-  height: 100%;
+ 
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family: 'Muli', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 14px;
   line-height: 1.5;
   color: #24292e;
-  background: #0cebeb;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to bottom, #29ffc6, #20e3b2, #0cebeb);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom, #29ffc6, #20e3b2, #0cebeb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  height: max-content;
   
 }
 
 h1, h2, h3, h4, h5, h6{
-  font-family: 'Vollkorn', serif;
+  font-family: 'Roboto', serif;
 }
 .App{
+  padding-bottom: 100px;
+  min-height:100vh;
   height: auto;
   display:grid;
   grid-template-rows: max-content max-content;
+  background: #0cebeb;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #29ffc6, #20e3b2, #0cebeb);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #29ffc6, #20e3b2, #0cebeb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .container {
-  height: max-content;
+  height: auto;
   display: flex;
   align-items: center;
 }
@@ -203,10 +209,11 @@ h1, h2, h3, h4, h5, h6{
   border:none;
   padding: .5rem 2rem;
   margin: 1rem auto;
-  border-radius: 12px;
-  border-top-right-radius: 2px;
+  border-radius: 5px;
   font-weight: 200%;
   box-shadow: 0 5px 13px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  width: 100%;
+  font-size:16px;
 
   &:hover{
     background-color:$color-skyblue;
@@ -220,8 +227,16 @@ h1, h2, h3, h4, h5, h6{
   background-color: white;
   box-shadow: 0 5px 13px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   border-radius: 5px;
-  padding: 1rem;
+  padding: 1rem 1rem 5rem 1rem;
   text-align: center;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  h2{
+    padding-top:3rem;
+  }
+  h4{
+    padding-bottom: 2rem;
+  }
 }
 
   
@@ -344,6 +359,12 @@ button.outline {
 .food-wrapper{
   grid-column-start:1;
   grid-column-end: 3;
+  h2{
+    text-align: center;
+  }
+  p{
+    text-align: center;
+  }
 }
 
 
@@ -351,15 +372,22 @@ button.outline {
 /* insulin user input form */
 .insulin-type{
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 1rem;
-  text-align: center;
-
+  grid-template-columns: max-content 1fr;
+align-items: baseline;
+p{
+  text-align: right;
+}
   .checkbox{
     margin:0;
   }
 }
-
 .insulin-input{
   margin-top:0;
+}
+.user-input-form{
+  max-width:50%;
+  margin: 0 auto;
+  label{
+    text-align: left;
+  }
 }

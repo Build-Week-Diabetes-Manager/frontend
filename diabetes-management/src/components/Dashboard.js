@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import {  Route, NavLink } from "react-router-dom";
 import { TabContainer, Container, Row, Col, Tab, Nav } from 'react-bootstrap';
 import TestDoughnut from './ChartThree.js'
@@ -13,6 +13,20 @@ const Dashboard = () => {
     const [home, setHome] =useState(true);
     // const {user} = useContext(UserContext)
 
+    
+    const time = new Date().getHours() ;
+    const [message, setMessage] = useState('Welcome')
+    
+    useEffect(() => {
+        if(time < 12){
+            setMessage('Good Morning')
+        } else if (time > 12 && time < 18){
+            setMessage('Good Afternoon')
+        } else{
+            setMessage('Good Evening')
+        }
+       
+    }, [])
     return (
     <div className="Container dashboard-container">  
         <TabContainer  defaultActiveKey="home">
@@ -40,7 +54,8 @@ const Dashboard = () => {
                 <div className="view-wrapper">
 
                     <div className="top-bar">
-                    <h4> Hello User </h4>
+                    <h4>{message}</h4>
+                    
                         {/* <h4>{user.message}</h4> */}
                         {/* {console.log("USEEER", user)} */}
                     </div>
