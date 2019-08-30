@@ -4,14 +4,15 @@ export const FETCH_DATA_START = 'FETCH_DATA_START';
 export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS';
 export const FETCH_DATA_FAILURE = 'FETCH_DATA_FAILURE';
 
-export const getData = (state) => {
+export const getData = (state,id) => {
     return dispatch => {
-        const toSend = [...state];
+        const toSend = [];
+        toSend.push(state);
         console.log('actionInvoked');
         console.log('tosend', toSend);
         dispatch({ type: FETCH_DATA_START });
         axiosWithAuth()
-            .post(`https://diabetesmanager.herokuapp.com/api/manager/manage/ds`, toSend)
+            .post(`https://diabetesmanager.herokuapp.com/api/manager/manage/ds/${id}`, toSend)
             .then(res => {
                 console.log('resdata', res);
                 dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data.data} )

@@ -21,7 +21,7 @@ const insulineType = [
     {value: 35, label: 'UltraLente insuline dose'},
 ]
 
-const Form = () => {
+const Form = (props) => {
 
     const [glucose, setGlucose] = useState({ timestamp: '', code: '', value: ''});
 
@@ -89,7 +89,7 @@ const Form = () => {
         setGlucose({...glucose, timestamp: currentTime()})
         console.log(glucose);
         post(glucose);
-        getData(glucose); //maybe delete later
+        props.getData(glucose); //maybe delete later
     };
 
     //refactor to check if state is complete, and modularize
@@ -102,9 +102,9 @@ const Form = () => {
         post(regular);
         post(nph);
         post(UltraLente);
-        getData(regular); //maybe delete later
-        getData(nph); //maybe delete later
-        getData(UltraLente); //maybe delete later
+        props.getData(regular); //maybe delete later
+        props.getData(nph); //maybe delete later
+        props.getData(UltraLente); //maybe delete later
         // dsPost(glucose, regular, nph, UltraLente);
     };
 
@@ -162,7 +162,7 @@ const Form = () => {
                 Regular insuline:
                 <input type="checkbox" name={33} value={33} onChange={event => handleRegularSelect(event)}/>
             </div>
-                <input type="number" name={33} onChange={event => handleRegularChange(event)} value={regular.value} />
+                <input className="insulin-input" type="number" name={33} onChange={event => handleRegularChange(event)} value={regular.value} />
         </label>
 
         <label>
@@ -170,7 +170,7 @@ const Form = () => {
                 NPH Insuline:
                 <input type="checkbox" name={34} value={34} onChange={event => handleNphSelect(event)}/>
             </div>
-                <input type="number" name={34} onChange={event => handleNphChange(event)} value={nph.value} />
+                <input className="insulin-input" type="number" name={34} onChange={event => handleNphChange(event)} value={nph.value} />
         </label>
 
         <label>
@@ -178,7 +178,7 @@ const Form = () => {
                 UltraLente Insuline:
                 <input className="checkbox" type="checkbox" name={35} value={35} onChange={event => handleUltraLenteSelect(event)}/>
             </div>
-                <input type="number" name={35} onChange={event => handleUltraLenteChange(event)} value={UltraLente.value} />
+                <input className="insulin-input" type="number" name={35} onChange={event => handleUltraLenteChange(event)} value={UltraLente.value} />
 
         </label>
 
