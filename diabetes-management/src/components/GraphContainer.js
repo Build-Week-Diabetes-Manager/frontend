@@ -14,10 +14,13 @@ const GraphContainer = () =>{
 
             <div className="container-two"> 
             <TestLine />
+                <button className="button-style-1"> Prediction My BGL</button>
             </div>
 
             <div className="user-input"> 
-            <p> Please input your glucose measurement and the time you took the measurement below </p>
+            <h2>Blood Glucose Level Input </h2>
+            <h4> Please input your glucose measurement and the time you took the measurement below. </h4>
+            <p className=""> </p>
                 <UserInput  />
             </div>
         </>

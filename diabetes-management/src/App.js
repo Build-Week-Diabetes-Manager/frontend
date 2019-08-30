@@ -9,7 +9,6 @@ import FormikUserFormLogin from './components/Login'
 import FormikUserFormSignup from './components/Signup.js'
 import Login from "./components/Login.js"; 
 import Navbar from './components/Navbar'
-// import UserProvider from "./provider/UserProvider"
 
 
 
@@ -18,20 +17,14 @@ function App() {
   const [username, setUserName] = useState()
 
   return (
-
-
-<div className="App">
-<Navbar/>
-    <div className="container"> 
-
-    {/* <UserProvider>  */}
-      <Route exact path="/Login" render={props => <FormikUserFormLogin {...props } />} />
-      <Route exact path="/" render={props => <FormikUserFormSignup {...props } />} />
-      <PrivateRoute exact path="/Dashboard" component={Dashboard} />
-    {/* </UserProvider> */}
-    </div>
-      
-    </div> 
+      <div className="App">
+        <Navbar/>
+        <div className="container"> 
+          <Route exact path="/Login" render={props => <FormikUserFormLogin {...props } />} />
+          <Route exact path="/" render={props => <FormikUserFormSignup {...props } />} />
+          <PrivateRoute exact path="/Dashboard" component={Dashboard} />
+        </div>
+      </div> 
    
   );
 }

@@ -10,7 +10,7 @@ export const Navbar = () => {
 return (
   
 <div className="navbar">
-<img className="mainLogo" src={require('../img/logo/InsulineLogo.svg')}/>
+<img className="mainLogo" src={require('../img/logo/InsulineLogo.svg') } href="/" alt="Insuline Logo"/>
 </div>
     )
 }

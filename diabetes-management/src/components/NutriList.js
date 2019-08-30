@@ -51,12 +51,12 @@ export default function NutriList() {
     return(
         <>
         {/* SearchBar in progress need to debug */}
-        <h3>Food Finder </h3>
+        <h2>Food Finder </h2>
         <p> Use our food finder to look up basic nutrient values</p>
         <div className="search-bar"> 
         <form className="search">
             <input name='searchTerm' value={searchValue.searchTerm} onChange={handleSearchInputChange} type="text" />
-            <input onClick={callSearchFunction} type="submit" value="SEARCH" />
+            <input className="button-style-1" onClick={callSearchFunction} type="submit" value="SEARCH" />
         </form>
         </div>
 
