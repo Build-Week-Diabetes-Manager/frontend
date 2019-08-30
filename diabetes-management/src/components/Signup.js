@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import * as Yup from 'yup';
 import { Form, Field, withFormik } from "formik"; 
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import '../App.scss';
 
  const SignUp = ({ errors, touched, values, status }) => {
 
@@ -15,7 +17,7 @@ import { Form, Field, withFormik } from "formik";
 
  return(
     <div className='user-form'> 
-    <h1> Make an Account </h1>
+    <h1> Create an Account </h1>
     <Form>
     <Field type="text" name="username" placeholder="Username" />
     {touched.username && errors.username && (
@@ -27,9 +29,10 @@ import { Form, Field, withFormik } from "formik";
           <p className="error">{errors.password}</p>
         )}
 
-    <button type='submit'>Sign Up</button>
+    <button className='submit-btn'type='submit'>Sign Up</button>
      
     </Form> 
+    <button className="switch-route"><Link className="route-link" to="/login"> Already have an account? Click here to sign in. </Link> </button>
     </div>
  )   
 }

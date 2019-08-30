@@ -1,9 +1,22 @@
 /* Color Variables*/
 $color-dashbackground: #8bd7d2;
 
+$color-skyblue: #49c6e5;
+$color-lightblue: #54defd;
+$color-paperWhite: #fffbfa;
+$color-mossgreen: #8bd7d2;
+$color-spearmint: #00bd9b;
+
+
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css?family=Muli|Vollkorn&display=swap');
+
+// For Headings: font-family: 'Vollkorn', serif;
+// For Rest: font-family: 'Muli', sans-serif;
 
 * {
   box-sizing: border-box;
+  color: #424242;
 }
 
 #root,
@@ -15,40 +28,55 @@ body {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
-    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-family: 'Muli', sans-serif;
   font-size: 14px;
   line-height: 1.5;
   color: #24292e;
   background: #0cebeb;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -webkit-linear-gradient(to bottom, #29ffc6, #20e3b2, #0cebeb);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #29ffc6, #20e3b2, #0cebeb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Vollkorn', serif;
 }
 .App{
   height: auto;
-  display:flex;
-  flex-direction: column;
+  display:grid;
+  grid-template-rows: max-content max-content;
 }
 
 .container {
-  height: 80vh;
+  height: max-content;
   display: flex;
   align-items: center;
 }
 .navbar{
   margin: 25px;
   color: white;
+  h3{
+    width: max-content;
+    font-size: 32px;
+    font-weight: 400;
+    margin: 0 auto;
+    color: white;
+  }
 
+}
+
+.mainLogo{
+  width:10%;
+  margin: 0 auto;
 }
 
 /* DASHBOARD COMPONENTS */
 .dashboard-container{
   display:flex;
-  padding: 1em;
-  background-color: white;
+  padding: 1rem;
+  background-color: #fafafa;
   border-radius: 15px;
-  width: 95%;
+  width: 90vw;
   margin:0 auto;
   box-shadow: 0px 0px 39px -20px;
 
@@ -59,9 +87,9 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: white;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
+
 
   .icon{
     width:2.5rem;
@@ -91,20 +119,124 @@ body {
 .top-bar{
   display: flex;
   flex-direction: row;
+  width: 100%;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+}
 
+.nutriList{
+  max-height: 500px;
+  overflow: auto;
+}
 
+.nutriCard{
+  text-align: center;
+  box-shadow: 0 5px 13px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 5px;
+  padding: 2rem;
+  margin: 1rem;
 }
 
 
 
-/* USER FORM */
+.row-2{
+  width:100%;
+}
+.component-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 1rem;
+  grid-gap: 2rem;
+  min-height: 450px;
+
+  .container-one{
+
+    display:flex;
+    flex-direction:column;    text-align: center;
+    box-shadow: 0 5px 13px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    border-radius: 5px;
+    padding: 1rem;
+    background-color: white;
+
+  }
+  .container-two{
+    background-color: white;
+    box-shadow: 0 5px 13px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    border-radius: 5px;
+    padding: 1rem;
+    text-align: center;
+  }
+
+}
+
+@media only screen and (max-width:1450px){
+  .component-container{
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    margin: 1rem;
+    grid-gap: 2rem;
+    // min-height: 450px;
+  }
+}
+
+
+.container-one, .container-two{
+  h2{
+    padding: 1rem;
+  }
+}
+
+
+/* GET YOUR PREDICITONS */
+
+.user-predictions{
+  background-color: white;
+  box-shadow: 0 5px 13px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 5px;
+  padding: 1rem;
+  text-align: center;
+
+}
+
+.button-style-1{
+  background-color:#8bd7d2;
+  color: white;
+  border:none;
+  padding: .5rem 2rem;
+  margin: 1rem auto;
+  border-radius: 12px;
+  border-top-right-radius: 2px;
+  font-weight: 200%;
+  box-shadow: 0 5px 13px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+  &:hover{
+    background-color:$color-skyblue;
+
+  }
+}
+
+
+  /* USER FORM */
+.user-input{
+  background-color: white;
+  box-shadow: 0 5px 13px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 5px;
+  padding: 1rem;
+  text-align: center;
+}
+
+  
 .user-form {
   width: 500px;
   height: max-content;
-  margin: 0 auto;
+  margin: 200px auto;
   padding: 32px;
   background-color: #fff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 10px;
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.12);
+  h1{
+    font-weight: 500;
+    text-align: center;
+  }
 }
 .user-container{
   width: 500px;
@@ -123,7 +255,6 @@ body {
 
 input,
 textarea {
-  margin-top: 32px;
   padding: 0.5rem;
   font-size: 16px;
   width: 100%;
@@ -153,118 +284,21 @@ label {
   margin-top: 0.25rem;
 }
 
-.food-select {
-  display: block;
-  font-size: 16px;
-  font-family: sans-serif;
-  color: #444;
-  line-height: 1.3;
-  padding: 0.6em 1.4em 0.5em 0.8em;
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  margin: 0;
-  margin-top: 32px;
-  border: 1px solid #aaa;
-  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
-  border-radius: 0.5em;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  background-color: #fff;
-  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
-    linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
-  background-repeat: no-repeat, repeat;
-  background-position: right 0.7em top 50%, 0 0;
-  background-size: 0.65em auto, 100%;
-}
-.food-select::-ms-expand {
-  display: none;
-}
-.food-select:hover {
-  border-color: #888;
-}
-.food-select:focus {
-  border-color: #aaa;
-  box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
-  box-shadow: 0 0 0 3px -moz-mac-focusring;
-  color: #222;
-  outline: none;
-}
-.food-select option {
-  font-weight: normal;
+.insulin-type{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 1rem;
+  text-align: center;
+
+  .checkbox{
+    margin:0;
+  }
 }
 
-.checkbox-container {
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-top: 32px;
-  cursor: pointer;
-  font-size: 18px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/* Hide the browser's default checkbox */
-.checkbox-container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-/* Create a custom checkbox */
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: #eee;
-}
-
-/* On mouse-over, add a grey background color */
-.checkbox-container:hover input ~ .checkmark {
-  background-color: #ccc;
-}
-
-/* When the checkbox is checked, add a blue background */
-.checkbox-container input:checked ~ .checkmark {
-  background-color: #2196f3;
-}
-
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
-  content: '';
-  position: absolute;
-  display: none;
-}
-
-/* Show the checkmark when checked */
-.checkbox-container input:checked ~ .checkmark:after {
-  display: block;
-}
-
-/* Style the checkmark/indicator */
-.checkbox-container .checkmark:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
-button {
+.submit-btn {
   max-width: 150px;
-  margin: 32px 0;
+  margin: 32px auto;
+  display: block;
   padding: 12px 20px;
   border-style: none;
   border-radius: 5px;
@@ -300,34 +334,25 @@ button.outline {
   overflow: auto;
 }
 
+.switch-route{
+  display: block;
+  background: none;
+  border: none;
+  text-decoration: none;
+  margin: 0 auto;
+}
+.route-link{
+  text-decoration: none;
+  color: inherit;
 
-.top-bar{
-  width: 100%;
-  margin-bottom: 1em;
-  margin-left: 1em;
 }
-.row-2{
-  width:100%;
+.icon-tab{
+  border:none;
 }
-.component-container{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 1em;
-  grid-gap: 1em;
-  .container-one{
-    text-align: center;
-    box-shadow: 0 5px 13px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    border-radius: 5px;
-    padding: 1em;
+.food-wrapper{
+  grid-column-start:1;
+  grid-column-end: 3;
+}
 
-  }
-  .container-two{
-    background-color: white;
-    box-shadow: 0 5px 13px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    border-radius: 5px;
-    padding: 1em;
-  }
-  .container-two{
-    text-align: center;
-  }
-}
+
+

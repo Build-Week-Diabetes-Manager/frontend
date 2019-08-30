@@ -1,16 +1,22 @@
 import React from 'react'
-import 'bootstrap/dist/css/bootstrap.css';
+
 // import { Navbar, Nav, Form, Button, FormControl } from "react-bootstrap"
 // import { BrowserRouter, Link, Router, Route } from "react-router-dom"
 // import Signup from "./Signup.js"; 
 // import Login from "./Login.js"; 
 // import App from '../App.js';
 
-export const NavBar = () => {
+export const Navbar = () => {
 return (
   
 <div className="navbar">
-<h1>Diabetes Manager</h1>
+<img className="mainLogo" src={require('../img/logo/InsulineLogo.svg') } href="/" alt="Insuline Logo"/>
+</div>
+    )
+}
+
+export default Navbar;
+
  {/* <>
  <Router> 
  <Navbar bg="light" variant="light">
@@ -42,6 +48,3 @@ return (
   </Router>
 
 </> */}
-</div>
-    )
-}

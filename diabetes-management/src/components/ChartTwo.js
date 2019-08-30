@@ -56,8 +56,12 @@ export default class TestLine extends Component {
   render() {
     return (
       <div>
-        <h2>Glucose doughnut chart</h2>
-        <Line ref="chart" data={data} />
+        <h2>Daily Glucose Levels</h2>
+        <Line ref="chart" data={data} options={{
+        legend: {
+            position:'bottom',
+        }
+    }}/>
       </div>
     );
   }

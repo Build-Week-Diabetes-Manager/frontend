@@ -26,7 +26,7 @@ const data = {
       pointHoverBorderWidth: 2,
       pointRadius: 1,
       pointHitRadius: 10,
-      data: [65, 59, 80, 81, 56, 55, 40]
+      data: [35,120]
     },
     {
         label: 'Actual Glucose Level',
@@ -47,7 +47,7 @@ const data = {
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
-        data: [59, 66, 83, 75, 50, 60, 55]
+        data: [100]
       }
   ]
 };
@@ -57,7 +57,11 @@ export default class  extends Component {
     return (
       <div>
         <h2>Glucose doughnut chart</h2>
-        <Doughnut ref="chart" data={data} />
+        <Doughnut ref="chart" data={data} options={{
+        legend: {
+            position:'bottom',
+        }
+    }} />
       </div>
     );
   }

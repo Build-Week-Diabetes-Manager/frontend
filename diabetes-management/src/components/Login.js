@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext} from 'react';
 import axios from 'axios';
 import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import '../App.scss';
 
 const UserForm = ({ errors, touched, values, handleSubmit, status }) => {
   const [users, setUsers] = useState([]);
@@ -13,6 +15,8 @@ console.log(users)
     }
   }, [status]);
 
+  // const {user, setUser} = useContext(UserContext)
+
   return (
       <>
      
@@ -23,17 +27,13 @@ console.log(users)
         {touched.username && errors.username && (
           <p className="error">{errors.username}</p>
         )}
-
-
         <Field type="password" name="password" placeholder="Password" />
         {touched.password && errors.password && (
           <p className="error">{errors.password}</p>
         )}
-
-
-        <button className="submit-btn"type="submit">Login!</button>
+        <button className="submit-btn" type="submit">Login!</button>
       </Form>
-      <button onClick={() => {isRegistered ? setIsRegistered(false) : setIsRegistered(true)}}className="register-btn">{isRegistered ? `Already have an account?` : `Don't Have An Account?`}</button>
+      <button className="switch-route"><Link className="route-link" to="/"> Don't have an account? Click here to sign up.</Link> </button>
     </div>
 
     </>
@@ -53,6 +53,7 @@ const FormikUserFormLogin = withFormik({
     username: Yup.string().required('Please enter your username'),
     password: Yup.string().required('Please enter a password')
   }),
+  
 
   handleSubmit(values, { props, setStatus }) {
     console.log("users value",values)
@@ -64,6 +65,7 @@ const FormikUserFormLogin = withFormik({
         props.history.push("/dashboard")
         localStorage.setItem("token", res.data.token)
         console.log(res.data)
+        // setUser({message: res.data.message})
       })
       .catch(err => console.log(err.response));
   }

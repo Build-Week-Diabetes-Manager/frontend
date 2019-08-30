@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.scss';
 
@@ -8,25 +8,24 @@ import Dashboard from './components/Dashboard'
 import FormikUserFormLogin from './components/Login'
 import FormikUserFormSignup from './components/Signup.js'
 import Login from "./components/Login.js"; 
-
+import Navbar from './components/Navbar'
 
 
 
 function App() {
-  return (
-    <Router> 
 
-<div className="App">
-     <Link to="/signup"> Sign Up </Link> 
-    <Link to="/login"> Login </Link>
-    </div> 
-    <div className="container"> 
-    <Route path="/Login" render={props => <FormikUserFormLogin {...props } />} />
-    <Route path="/Signup" render={props => <FormikUserFormSignup {...props } />} />
-    <PrivateRoute exact path="/Dashboard" component={Dashboard} />
-    </div>
-    <Dashboard />
-    </Router>
+  const [username, setUserName] = useState()
+
+  return (
+      <div className="App">
+        <Navbar/>
+        <div className="container"> 
+          <Route exact path="/Login" render={props => <FormikUserFormLogin {...props } />} />
+          <Route exact path="/" render={props => <FormikUserFormSignup {...props } />} />
+          <PrivateRoute exact path="/Dashboard" component={Dashboard} />
+        </div>
+      </div> 
+   
   );
 }
 export default App;
