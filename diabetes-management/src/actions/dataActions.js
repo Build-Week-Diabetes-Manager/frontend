@@ -8,6 +8,7 @@ export const getData = (state) => {
     return dispatch => {
         const toSend = [...state];
         console.log('actionInvoked');
+        console.log('tosend', toSend);
         dispatch({ type: FETCH_DATA_START });
         axiosWithAuth()
             .post(`https://diabetesmanager.herokuapp.com/api/manager/manage/ds`, toSend)

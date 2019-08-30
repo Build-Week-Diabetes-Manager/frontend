@@ -59,9 +59,11 @@ const Form = () => {
     const post = (state) => {
         axiosWithAuth()
             .post(`https://diabetesmanager.herokuapp.com/api/manager/manage`,state)
-            .then(res => console.log('post res', res))
+            .then(res => {
+                console.log('post res', res);
+                getData(state);
+            })
             .catch(err => console.error(err))
-        getData(state);
     };
 
     // const dsPost = (state) => {
@@ -87,6 +89,7 @@ const Form = () => {
         setGlucose({...glucose, timestamp: currentTime()})
         console.log(glucose);
         post(glucose);
+        getData(glucose); //maybe delete later
     };
 
     //refactor to check if state is complete, and modularize
@@ -99,6 +102,9 @@ const Form = () => {
         post(regular);
         post(nph);
         post(UltraLente);
+        getData(regular); //maybe delete later
+        getData(nph); //maybe delete later
+        getData(UltraLente); //maybe delete later
         // dsPost(glucose, regular, nph, UltraLente);
     };
 
