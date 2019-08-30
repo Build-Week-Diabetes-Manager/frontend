@@ -99,7 +99,7 @@ const Form = () => {
         post(regular);
         post(nph);
         post(UltraLente);
-        dsPost(glucose, regular, nph, UltraLente);
+        // dsPost(glucose, regular, nph, UltraLente);
     };
 
     // const handleDoseSelect = (event, setter, state) => {
@@ -181,6 +181,14 @@ const Form = () => {
         </>
     )
 }
+
+const mapStateToProps = state => {
+    console.log('formstate', state);
+    return {
+        data: state.diadata
+    }
+}
+
 export default connect(
     mapStateToProps, 
     { getData }
