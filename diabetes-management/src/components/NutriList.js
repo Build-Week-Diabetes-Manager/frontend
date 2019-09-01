@@ -46,8 +46,6 @@ export default function NutriList() {
    
 
 
-
-
     return(
         <>
         {/* SearchBar in progress need to debug */}
