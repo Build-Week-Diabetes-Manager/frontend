@@ -133,6 +133,7 @@ h1, h2, h3, h4, h5, h6{
 .nutriList{
   max-height: 500px;
   overflow: auto;
+
 }
 
 .nutriCard{
@@ -141,6 +142,12 @@ h1, h2, h3, h4, h5, h6{
   border-radius: 5px;
   padding: 2rem;
   margin: 1rem;
+  h2{
+    font-size: 16px;
+  }
+  h4{
+    font-size: 12px;
+  }
 }
 
 
@@ -390,4 +397,8 @@ p{
   label{
     text-align: left;
   }
+}
+.errorText{
+  color: red;
+  font-size: 16px;
 }
