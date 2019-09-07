@@ -361,8 +361,12 @@ button.outline {
 
 }
 .icon-tab{
-  border:none;
-}
+  border:0;
+  cursor: pointer;
+ 
+} 
+.icon-tab:focus {outline:0;}
+
 .food-wrapper{
   grid-column-start:1;
   grid-column-end: 3;
