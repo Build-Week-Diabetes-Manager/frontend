@@ -35,13 +35,13 @@ const Dashboard = () => {
                 <Nav className="flex-column">
                     <div className="icon-container">
                         {/*Diabetes Manager Logo */}
-                        <img className="icon logo" src={require('../img/favicon/insulineIcon.svg')}/>
+                        <img className="icon logo" src={require('../img/favicon/dash-logo.svg')}/>
         
                         
-                        <button className='icon-tab' onClick={() => setHome(true)}><img className="icon" src={require('../img/dashboardIcons/homeIcon1.svg')}/></button>
+                        <button className='icon-tab' onClick={() => setHome(true)}><img className="icon" src={ home ? require('../img/dashboardIcons/homeIcon-active.svg'): require('../img/dashboardIcons/homeIcon1.svg')}/></button>
                        
                       
-                        <button className='icon-tab' onClick={() => setHome(false)}><img className="icon" src={require('../img/dashboardIcons/graphIcon.svg')}/></button>
+                        <button className='icon-tab' onClick={() => setHome(false)}><img className="icon" src={ home ? require('../img/dashboardIcons/graphIcon.svg'): require('../img/dashboardIcons/graphIcon-active.svg')}/></button>
                         
                         
                     </div>
