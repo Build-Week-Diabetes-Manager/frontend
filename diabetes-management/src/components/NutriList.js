@@ -49,11 +49,11 @@ const [error, setError]= useState(null)
     const callSearchFunction = (event) => {
         event.preventDefault();
 
-        axios.get(`https://api.nal.usda.gov/ndb/search/?format=json&q=${searchValue.searchTerm}&sort=n&offset=0&api_key=dCI2jG9Xjje6T5rvhUL09LQFpjRn5zM67aLtYIu7`)
+        axios.get(`https://api.nal.usda.gov/ndb/search/?format=json&q=${searchValue.searchTerm}&sort=n&max=25&offset=0&api_key=dCI2jG9Xjje6T5rvhUL09LQFpjRn5zM67aLtYIu7`)
         .then(async response => {
             const newArr = response.data.list.item.map(el => el.ndbno)
             
-          const res = await axios.get(`https://api.nal.usda.gov/ndb/V2/reports?ndbno=${newArr.join("&ndbno=")}&max=10&type=f&format=json&api_key=dCI2jG9Xjje6T5rvhUL09LQFpjRn5zM67aLtYIu7`);
+          const res = await axios.get(`https://api.nal.usda.gov/ndb/V2/reports?ndbno=${newArr.join("&ndbno=")}&type=f&format=json&api_key=dCI2jG9Xjje6T5rvhUL09LQFpjRn5zM67aLtYIu7`);
             console.log(res.data.foods);
             setFood(res.data.foods)
             setError(null) // using response.data
