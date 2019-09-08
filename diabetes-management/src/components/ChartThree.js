@@ -47,7 +47,7 @@ const data = {
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
-        data: [100]
+        data: [60]
       }
   ]
 };
@@ -56,7 +56,7 @@ export default class  extends Component {
   render() {
     return (
       <div>
-        <h2>Glucose doughnut chart</h2>
+        <h2>Your Current GCL VS Current Predicted GCL</h2>
         <Doughnut ref="chart" data={data} options={{
         legend: {
             position:'bottom',
@@ -68,6 +68,6 @@ export default class  extends Component {
 
   componentDidMount() {
     const { datasets } = this.refs.chart.chartInstance.data
-    console.log(datasets[0].data);
+    // console.log(datasets[0].data);
   }
 }

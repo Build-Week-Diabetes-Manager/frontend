@@ -1,11 +1,10 @@
-import React, {Component} from 'react';
+import React, {useState, useEffect,Component} from 'react';
 import { Line } from 'react-chartjs-2';
 import colors from './colors'
-
-
+import axiosWithAuth from '../utils/axiosWithAuth';
 
 const data = {
-  labels: ['Breakfast', ' Elevensies', 'Lunch', 'PostLunch', 'Dinner', 'Post', 'midnight snack'],
+  labels: ['Breakfast', ' Elevensies', 'Lunch', 'Post Lunch', 'Dinner', 'Post Dinner'],
   datasets: [
     {
       label: 'Predicted Glucose Levels',
@@ -26,7 +25,7 @@ const data = {
       pointHoverBorderWidth: 2,
       pointRadius: 1,
       pointHitRadius: 10,
-      data: [65, 59, 80, 81, 56, 55, 40]
+      data: [1,2,3,4,5,6],
     },
     {
         label: 'Actual Glucose Level',
@@ -47,27 +46,58 @@ const data = {
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
-        data: [59, 66, 83, 75, 50, 60, 55]
+        data: [],
       }
   ]
 };
 
-export default class TestLine extends Component {
-  render() {
+export const TestLine = () => {
+
+  const [newData, setNewData] = useState(data)
+
+  useEffect(() => {
+    axiosWithAuth().get(`https://diabetesmanager.herokuapp.com/api/manager/manage/ds/1`)
+    .then(res =>{
+        setNewData(newData,newData.datasets[0].data = Object.values(res.data))
+    })
+    .catch(err => console.log("axios err: ", err))
+}, [])
+
+  // componentWillReceiveProps(props) {
+  //   console.log("props.dglevels: ", props.dglevels)
+  //   console.log(this.state.datasets[0].data)
+  //   this.setState((state,props) => ({
+
+  //     [state.datasets[0].data]: [1,2,3,4,5,6]
+  //   }))
+  // }
+
+ 
+    // console.log("this.props.dglevels: ", this.props.dglevels)
     return (
       <div>
         <h2>Daily Glucose Levels</h2>
-        <Line ref="chart" data={data} options={{
-        legend: {
-            position:'bottom',
-        }
-    }}/>
+          <Line data={newData} options={{
+          legend: {
+              responsive: true,
+              position:'bottom',
+            }
+          }}/>
       </div>
     );
-  }
+  
 
-  componentDidMount() {
-    const { datasets } = this.refs.chart.chartInstance.data
-    console.log(datasets[0].data);
-  }
+
+
 }
+ export default TestLine;
+
+
+
+// updateConfigByMutating(data)
+// updateConfigByMutating(data, dglevels) {
+//   data.datasets[0].label = 'new title';
+//   // data.datasets[0].data = {dglevels};
+//   console.log("dglevels: ", dglevels)
+//   // chart.update();
+// }

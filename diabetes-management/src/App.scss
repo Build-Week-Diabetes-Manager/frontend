@@ -184,12 +184,22 @@ h1, h2, h3, h4, h5, h6{
 
 @media only screen and (max-width:1450px){
   .component-container{
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
     margin: 1rem;
     grid-gap: 2rem;
     // min-height: 450px;
   }
+  .container-one{
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .container-one{
+    grid-column: 1;
+    grid-row: 2;
+  }
 }
+
 
 
 .container-one, .container-two{
@@ -358,7 +368,6 @@ button.outline {
 .route-link{
   text-decoration: none;
   color: inherit;
-
 }
 .icon-tab{
   border:0;
@@ -406,3 +415,5 @@ p{
   color: red;
   font-size: 16px;
 }
+
+
