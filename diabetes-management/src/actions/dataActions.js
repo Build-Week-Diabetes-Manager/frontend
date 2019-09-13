@@ -20,3 +20,6 @@ export const getData = (state,id) => {
             .catch(err => dispatch({ type: FETCH_DATA_FAILURE, payload: err} ))
     }
 }
+
+
+// export const userIDAction = () => dispatch => {}

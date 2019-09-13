@@ -6,7 +6,6 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import '../App.scss';
 
  const SignUp = ({ errors, touched, values, status }) => {
-
     const [newUsers, setNewUsers] = useState({});
 
     useEffect(() => {
@@ -32,7 +31,7 @@ import '../App.scss';
     <button className='submit-btn'type='submit'>Sign Up</button>
      
     </Form> 
-    <button className="switch-route"><Link className="route-link" to="/login"> Already have an account? Click here to sign in. </Link> </button>
+    <button className="switch-route"><Link className="route-link" to="/login">Already have an account? Click here to sign in.</Link> </button>
     </div>
  )   
 }
@@ -59,7 +58,6 @@ handleSubmit(values, { resetForm , props, setStatus }) {
         .post("https://diabetesmanager.herokuapp.com/api/users/register", {username: values.username, password: values.password})
         .then(res => {
             console.log(res)
-            setStatus(res.data); 
             props.history.push("/login")
             resetForm(); 
         })    

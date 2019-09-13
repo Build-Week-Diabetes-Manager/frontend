@@ -1,14 +1,18 @@
 import React, { useState, useEffect, useContext} from 'react';
-import axios from 'axios';
-import { Form, Field, withFormik } from 'formik';
-import * as Yup from 'yup';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+import axios from 'axios';
+import * as Yup from 'yup';
+import { Form, Field, withFormik } from 'formik';
+
+// Styling
 import '../App.scss';
 
 const UserForm = ({ errors, touched, values, handleSubmit, status }) => {
   const [users, setUsers] = useState([]);
-  const [isRegistered, setIsRegistered] =useState(false)
-console.log(users)
+  const [userId, setUserId] = useState();
+  const [isRegistered, setIsRegistered] =useState(false);
+  console.log("LOGIN Users: ", users, "USERID: ", userId, "isRegistered: ", isRegistered);
   useEffect(() => {
     if (status) {
       setUsers([...users, status]);
@@ -41,6 +45,7 @@ console.log(users)
 
 
 const FormikUserFormLogin = withFormik({
+
   mapPropsToValues({ username, password }) {
     return {
       password: password || '',
@@ -54,16 +59,15 @@ const FormikUserFormLogin = withFormik({
   }),
   
 
-  handleSubmit(values, { props, setStatus }) {
-    console.log("users value",values)
+  handleSubmit(values, { props, setUserId }) {
+    
     axios
       .post('https://diabetesmanager.herokuapp.com/api/users/login', values)
       .then(res => {
         console.log("this is my res", res)
-        setStatus(res.data);
-        props.history.push("/dashboard")
+        localStorage.setItem("user_id", res.data.userId)
         localStorage.setItem("token", res.data.token)
-        console.log(res.data)
+        props.history.push("/dashboard")
       })
       .catch(err => console.log(err.response));
   }

@@ -205,6 +205,8 @@ h1, h2, h3, h4, h5, h6{
 .container-one, .container-two{
   h2{
     padding: 1rem;
+    font-weight: 400;
+    color: #717171;
   }
 }
 
@@ -260,7 +262,7 @@ h1, h2, h3, h4, h5, h6{
 .user-form {
   width: 500px;
   height: max-content;
-  margin: 200px auto;
+  margin: 10% auto;
   padding: 32px;
   background-color: #fff;
   border-radius: 10px;
