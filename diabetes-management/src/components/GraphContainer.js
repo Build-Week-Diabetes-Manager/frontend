@@ -7,15 +7,16 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 
 const GraphContainer = () =>{
 const [graphData, setGraphData] =useState({});
+const id = localStorage.getItem('user_id');
 
 useEffect(() => {
-    axiosWithAuth().get(`https://diabetesmanager.herokuapp.com/api/manager/manage/ds/1`)
+    axiosWithAuth().get(`https://diabetesmanager.herokuapp.com/api/manager/manage/ds/${id}`)
     .then(res =>{
-        setGraphData(Object.values(res.data))
-
+        setGraphData(res.data)
     })
     .catch(err => console.log("axios err: ", err))
 }, [])
+
 
       
     
@@ -27,8 +28,8 @@ useEffect(() => {
             </div>
 
             <div className="container-two"> 
-            <TestLine dglevels={graphData} />
-                <button className="button-style-1" > Prediction My BGL</button>
+            <TestLine  />
+          
             </div>
 
             <div className="user-input"> 

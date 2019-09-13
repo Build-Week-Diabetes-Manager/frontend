@@ -51,17 +51,27 @@ const data = {
   ]
 };
 
-export const TestLine = () => {
+export const TestLine = (props) => {
 
   const [newData, setNewData] = useState(data)
+  const id = localStorage.getItem('user_id')
 
   useEffect(() => {
-    axiosWithAuth().get(`https://diabetesmanager.herokuapp.com/api/manager/manage/ds/1`)
+    axiosWithAuth().get(`https://diabetesmanager.herokuapp.com/api/manager/manage/ds/${id}`)
     .then(res =>{
         setNewData(newData,newData.datasets[0].data = Object.values(res.data))
     })
     .catch(err => console.log("axios err: ", err))
 }, [])
+// /api/manage/manager/:id
+useEffect(() => {
+  axiosWithAuth().get(`https://diabetesmanager.herokuapp.com/api/manager/manage/${id}`)
+  .then(res =>{
+      setNewData(newData,newData.datasets[1].data = res.data.map(el => el.value))
+  })
+  .catch(err => console.log("axios err: ", err))
+}, [])
+
 
   // componentWillReceiveProps(props) {
   //   console.log("props.dglevels: ", props.dglevels)
