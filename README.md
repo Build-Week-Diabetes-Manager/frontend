@@ -1,5 +1,25 @@
 #Insuline - Diabetes Manager Insuline uses a predictive model to help manage user's blood sugar level.
 
+Technologies:
+Our application incorporates some great technologies such as the following listed below 🔥:
+
+Javascript:
+
+[x] React
+[x] Context API
+[x] useEffect
+   
+
+libraries:
+
+[x] redux
+[x] axios
+[x] react-bootstrap
+[x] chart.js
+[x] yup
+[x] sass
+[x] semantic-ui-react
+
 ##MVP:
 
 Mobile friendly dashboard showing blood sugar levels
@@ -38,6 +58,10 @@ Do APIs require you to contact its maintainer to gain access? A: With our curren
 Are you required to pay to use the API? A: Not that we know of at this time.
 
 Have you considered using Apple Frameworks? (MapKit, Healthkit, ARKit?) A: We have not at this time.
+
+
+## Project Ambition
+Some ambitions for this project were to create an application that allows people to checl their glucose levels. Diabetes Manager was built by Junior Developers implmenting technologys that they've learned.  
 
 ##Target Audience
 
