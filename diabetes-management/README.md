@@ -2,6 +2,27 @@ DESCRIPTION FROM AIRTABLE CARD
 Pitch:
 Develop a predictive model to help manage user's blood sugar level
 
+Technologies: Our application incorporates some great technologies such as the following listed below 🔥:
+
+
+Javascript:
+
+[x] React 
+[x] Context API 
+[x] useEffect
+
+libraries:
+
+[x] redux 
+[x] axios 
+[x] react-bootstrap 
+[x] chart.js 
+[x] yup 
+[x] sass 
+[x] semantic-ui-react
+
+
+
 MVP:
 1. Mobile friendly dashboard showing blood sugar levels
 2. A model predicting blood sugar levels over the next 24 hours
@@ -78,6 +99,11 @@ For Data Scientists
 - Write a description for what the DS problem is (what uncertainty/prediction are we trying to do here? Regression analysis. Making model predictions based on the provided dataset, which will predict a patient’s potential blood sugar levels for the  next 24 hours 
 Sentiment analysis? Why is this a useful solution to a problem?)
 - A target (e.g. JSON format or such) for output that DS students can deliver to web/other students for them to ingest and use in the app
+
+Project Ambition
+
+Some ambitions for this project were to create an application that allows people to check their glucose levels. Diabetes Manager was built by Junior Developers implementing technology's that they've learned.
+
 
 Target Audience
 
