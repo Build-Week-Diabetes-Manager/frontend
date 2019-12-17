@@ -1,24 +1,26 @@
 #Insuline - Diabetes Manager
 Insuline uses a predictive model to help manage user's blood sugar level.
 
-Technologies: Our application incorporates some great technologies such as the following listed below 🔥:
+## Technologies: 
+
+Our application incorporates some great technologies such as the following listed below 🔥:
 
 
-Javascript:
+	Javascript:
 
-[x] React 
-[x] Context API 
-[x] useEffect
+	[x] React 
+	[x] Context API 
+	[x] useEffect
 
-libraries:
+	libraries:
 
-[x] redux 
-[x] axios 
-[x] react-bootstrap 
-[x] chart.js 
-[x] yup 
-[x] sass 
-[x] semantic-ui-react
+	[x] redux 
+	[x] axios 
+	[x] react-bootstrap 
+	[x] chart.js 
+	[x] yup 
+	[x] sass 
+	[x] semantic-ui-react
 
 
 ##MVP:
