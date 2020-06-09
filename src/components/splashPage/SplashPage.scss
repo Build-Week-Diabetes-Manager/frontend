@@ -16,11 +16,12 @@ $font-weight-body1: 700;
 
 .splashPageContainer{
     // background-color: white;
-    margin: 0 auto;
+    // margin: 0 auto;
 
 
     .splashWelcomeNote{
         // background-color: $color-paperWhite;
+        border:2px solid $color-paperWhite;
         font-family: $font-header1;
         color: white;
         margin: 1%  auto; 
@@ -44,6 +45,7 @@ $font-weight-body1: 700;
     }
 
     .splashHeader{
+        margin-top: 0;
         font-family: $font-header1;
         font-weight: $font-weight-header1;
         color: $color-paperWhite;
