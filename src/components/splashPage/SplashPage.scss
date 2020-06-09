@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap');
+$color-dashbackground: #8bd7d2;
+
+$color-skyblue: #49c6e5;
+$color-lightblue: #54defd;
+$color-paperWhite: #fffbfa;
+$color-mossgreen: #8bd7d2;
+$color-spearmint: #00bd9b;
+
+$font-header1:'Roboto';
+$font-weight-header1:1000;
+
+$font-body1:'Roboto';
+$font-weight-body1: 700;
+
+
+.splashPageContainer{
+    // background-color: white;
+    // margin: 0 auto;
+
+
+    .splashWelcomeNote{
+        // background-color: $color-paperWhite;
+        border:2px solid $color-paperWhite;
+        font-family: $font-header1;
+        color: white;
+        margin: 1%  auto; 
+        padding:1%;
+        border-radius: 10px;
+    }
+
+    .signupContainer{
+        margin: 0 auto;
+    }
+    .sampleGraph{
+        max-width: 70%;
+        margin: 0 auto;
+        padding: 1%;
+        // background-color: white;
+        color: 'theme.palette.text.secondary';
+    }
+
+    .disclaimer{
+        color: red;
+    }
+
+    .splashHeader{
+        margin-top: 0;
+        font-family: $font-header1;
+        font-weight: $font-weight-header1;
+        color: $color-paperWhite;
+    }
+
+    .splashBody{
+        color: $color-paperWhite;
+        font-family: $font-body1;
+        font-weight: $font-weight-body1;
+    }
+
+
+}

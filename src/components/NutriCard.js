@@ -1,12 +1,6 @@
 import React, {useState} from "react";
-import axios from "axios";
-import { Card } from 'semantic-ui-react';
 
 export default function NutriCard(props) {
-
-
-
-
   return (
       
       <div className='nutriCard' key={props.food.name}>

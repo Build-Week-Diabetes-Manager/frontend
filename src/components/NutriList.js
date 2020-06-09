@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import NutriCard from "./NutriCard.js";
-import SearchBar from "./SearchBar.js";
 
 // USDA Food Composition Databases
 // https://developer.nrel.gov/api/
 // Started to build a nutrience report from https://ndb.nal.usda.gov/ndb/
-
-//api_key dCI2jG9Xjje6T5rvhUL09LQFpjRn5zM67aLtYIu7
-
 // https://api.nal.usda.gov/ndb/nutrients/?format=json&dCI2jG9Xjje6T5rvhUL09LQFpjRn5zM67aLtYIu7&nutrients=205&nutrients=204&nutrients=208&nutrients=269
 
 // https://api.nal.usda.gov/ndb/search/?format=json&q=${searchValue}&sort=n&max=25&offset=0&api_key=dCI2jG9Xjje6T5rvhUL09LQFpjRn5zM67aLtYIu7 
