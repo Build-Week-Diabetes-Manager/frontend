@@ -47,31 +47,36 @@ export function SplashPage() {
 					<Tabs
 						value={value}
 						onChange={handleChange}
-                        aria-label="Insuline Welcome and How Insuline works"
-                        variant="fullWidth"
-                        indicatorColor="primary"
+						aria-label="Insuline Welcome and How Insuline works"
+						variant="fullWidth"
+						indicatorColor="primary"
+						className="splashTabs"
 					>
-						<Tab label="Welcome To Insuline" />
-						<Tab label="How it works" />
+						<Tab className="splashTabs" label="Welcome To Insuline" />
+						<Tab className="splashTabs" label="How it works" />
 					</Tabs>
 				</AppBar>
 
-				<TabPanel value={value} index={0}>
+				<TabPanel value={value} index={0} >
 					<h1 className="splashHeader"> Welcome to Insuline</h1>
 					<p className="splashBody">
-						Insuline is a mobile friendly dashboard built with ReactJS, Formik, and
-						Chart.js.
+						Insuline is a mobile friendly dashboard meant to predict a diabetic user's
+						blood glucose level over an extended period of time*. The project was built with ReactJS, Formik,
+						and Chart.js.
 					</p>
 					<p className="splashBody">
 						{" "}
-						Using a data science model to predict a user's blood glucose levels over
+						Working in hand with our data engineers, Insuline uses a data science model to predict a user's blood glucose levels over
 						the next 24 hours.
 					</p>
 					<h4 className="disclaimer">
 						{" "}
-						This was built as a project, please don't rely solely on Insuline.
-						Seriously, this was built in a week.
+						Insuline was built as a proof of concept project and is not meant for medical
+						use. Seriously, we built it in a week.
 					</h4>
+					<p className="splashBody">
+						* 3 days worth of data is required for optimal predictions.
+					</p>
 				</TabPanel>
 
 				<TabPanel value={value} index={1}>
