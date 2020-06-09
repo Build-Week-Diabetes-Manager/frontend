@@ -1,9 +1,5 @@
-import React, {useState, useContext, useEffect} from 'react'
-import {  Route, NavLink } from "react-router-dom";
-import { TabContainer, Container, Row, Col, Tab, Nav } from 'react-bootstrap';
-import TestDoughnut from './ChartThree.js'
-import TestLine from './ChartTwo.js';
-import NutriList from './NutriList.js';
+import React, {useState, useEffect} from 'react'
+import { TabContainer, Row, Col, Nav } from 'react-bootstrap';
 import GraphContainer from './GraphContainer.js'; 
 import DashHome from './DashHome.js';
 
