@@ -36,7 +36,7 @@ const UserForm = ({ errors, touched, values, handleSubmit, status }) => {
         )}
         <button className="submit-btn" type="submit">Login!</button>
       </Form>
-      <button className="switch-route"><Link className="route-link" to="/"> Don't have an account? Click here to sign up.</Link> </button>
+      <button className="switch-route"><Link className="route-link" to="/SignUp"> Don't have an account? Click here to sign up.</Link> </button>
     </div>
 
     </>
@@ -44,7 +44,7 @@ const UserForm = ({ errors, touched, values, handleSubmit, status }) => {
 };
 
 
-const FormikUserFormLogin = withFormik({
+const Login = withFormik({
 
   mapPropsToValues({ username, password }) {
     return {
@@ -73,5 +73,5 @@ const FormikUserFormLogin = withFormik({
   }
 })(UserForm);
 
-export default FormikUserFormLogin;
+export default Login;
 

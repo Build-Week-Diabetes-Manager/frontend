@@ -1,6 +1,7 @@
 import React from "react";
 import "./SplashPage.scss";
 import SignUp from "../Signup";
+import Login from "../Login";
 import {
 	Container,
 	Grid,
@@ -80,7 +81,7 @@ export function SplashPage() {
 				</TabPanel>
 
 				<TabPanel value={value} index={1}>
-					<h2 className="splashHeader">How does it work?</h2>
+					<h1 className="splashHeader">How Does Insuline Work?</h1>
 					<Paper className="sampleGraph">
 						<TestLine />
 					</Paper>
@@ -98,7 +99,7 @@ export function SplashPage() {
 			</Grid>
 
 			<Grid item className="signupContainer">
-				<SignUp />
+				<Login/>
 			</Grid>
 		</Grid>
 	);

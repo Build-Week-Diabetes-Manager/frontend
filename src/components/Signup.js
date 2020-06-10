@@ -33,9 +33,10 @@ const SignUp = ({ errors, touched, values, status }) => {
 					Sign Up
 				</button>
 			</Form>
-			<button component={Link} className="switch-route" to="/login">
+			<button className="switch-route">
+			<Link className="route-link" to="/">
 					Already have an account? Click here to sign in.
-
+					</Link>
 			</button>
 		</div>
 	);
