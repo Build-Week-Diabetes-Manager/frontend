@@ -8,7 +8,7 @@ import Dashboard from './components/Dashboard'
 import FormikUserFormLogin from './components/Login'
 import SignUp from './components/Signup.js'
 import Login from "./components/Login.js"; 
-import Navbar from './components/Navbar'
+import MainNavbar from './components/Navbar'
 import { SplashPage } from './components/splashPage/SplashPage';
 
 
@@ -19,7 +19,7 @@ function App() {
 
   return (
       <div className="App">
-        <Navbar/>
+        <MainNavbar/>
         <div className="container"> 
           <Route exact path="/Login" render={props => <FormikUserFormLogin {...props } />} />
           <Route exact path="/SignUp" render={props => <SignUp {...props } />} />
