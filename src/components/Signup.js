@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import * as Yup from "yup";
 import { Form, Field, withFormik } from "formik";
-import { BrowserRouter as Link } from "react-router-dom";
+import { BrowserRouter as Router,  Link } from "react-router-dom";
 import "../App.scss";
 
 const SignUp = ({ errors, touched, values, status }) => {
@@ -17,9 +17,16 @@ const SignUp = ({ errors, touched, values, status }) => {
 
 	return (
 		<div className="user-form">
-			<h1> Create an Account </h1>
+			<img
+				className="entryPortalLogo"
+				src={require("../img/logo/mono-flat-logo.svg")}
+				href="/"
+				alt="Insuline Logo"
+			/>
+			<h1>Lets Get You Started!</h1>
+			<h2>Sign Up</h2>
 			<Form>
-				<Field type="text" name="username" placeholder="Username" />
+				<Field type="text" name="username" placeholder="Username" label="Username" />
 				{touched.username && errors.username && (
 					<p className="error">{errors.username}</p>
 				)}
@@ -33,9 +40,10 @@ const SignUp = ({ errors, touched, values, status }) => {
 					Sign Up
 				</button>
 			</Form>
-			<button component={Link} className="switch-route" to="/login">
+			<button className="switch-route">
+				<Link className="route-link" to="/login">
 					Already have an account? Click here to sign in.
-
+				</Link>
 			</button>
 		</div>
 	);
@@ -51,8 +59,8 @@ const SignUpForm = withFormik({
 	},
 
 	validationSchema: Yup.object().shape({
-		username: Yup.string().required("Please Fill in the blank"),
-		password: Yup.string().required("Please Fill in the blank"),
+		username: Yup.string().required("Please create a username."),
+		password: Yup.string().required("Please use a secure password that isn't your bank password."),
 	}),
 
 	handleSubmit(values, { resetForm, props, setStatus }) {

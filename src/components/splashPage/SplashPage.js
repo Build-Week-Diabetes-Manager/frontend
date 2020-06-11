@@ -1,6 +1,7 @@
 import React from "react";
 import "./SplashPage.scss";
 import SignUp from "../Signup";
+import Login from "../Login";
 import {
 	Container,
 	Grid,
@@ -35,9 +36,19 @@ function TabPanel(props) {
 
 export function SplashPage() {
 	const [value, setValue] = React.useState(0);
+	const [login, setLogin] = React.useState(true);
 
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
+	};
+
+	const loginChooser = () => {
+		if (login) {
+			console.log( "state is: ", true)
+			return <SignUp />;
+		} else {
+			return <Login />;
+		}
 	};
 
 	return (
@@ -57,22 +68,22 @@ export function SplashPage() {
 					</Tabs>
 				</AppBar>
 
-				<TabPanel value={value} index={0} >
+				<TabPanel value={value} index={0}>
 					<h1 className="splashHeader"> Welcome to Insuline</h1>
 					<p className="splashBody">
 						Insuline is a mobile friendly dashboard meant to predict a diabetic user's
-						blood glucose level over an extended period of time*. The project was built with ReactJS, Formik,
-						and Chart.js.
+						blood glucose level over an extended period of time*. The project was
+						built with ReactJS, Formik, and Chart.js.
 					</p>
 					<p className="splashBody">
 						{" "}
-						Working in hand with our data engineers, Insuline uses a data science model to predict a user's blood glucose levels over
-						the next 24 hours.
+						Working in hand with our data engineers, Insuline uses a data science
+						model to predict a user's blood glucose levels over the next 24 hours.
 					</p>
 					<h4 className="disclaimer">
 						{" "}
-						Insuline was built as a proof of concept project and is not meant for medical
-						use. Seriously, we built it in a week.
+						Insuline was built as a proof of concept project and is not meant for
+						medical use. Seriously, we built it in a week.
 					</h4>
 					<p className="splashBody">
 						* 3 days worth of data is required for optimal predictions.
@@ -80,7 +91,7 @@ export function SplashPage() {
 				</TabPanel>
 
 				<TabPanel value={value} index={1}>
-					<h2 className="splashHeader">How does it work?</h2>
+					<h1 className="splashHeader">How Does Insuline Work?</h1>
 					<Paper className="sampleGraph">
 						<TestLine />
 					</Paper>
@@ -98,7 +109,7 @@ export function SplashPage() {
 			</Grid>
 
 			<Grid item className="signupContainer">
-				<SignUp />
+				{loginChooser()}
 			</Grid>
 		</Grid>
 	);
