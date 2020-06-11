@@ -1,7 +1,7 @@
 import React from "react";
 import "./SplashPage.scss";
-import SignUp from "../Signup";
-import Login from "../Login";
+import SignUp from "../logInSignUp/Signup";
+import Login from "../logInSignUp/Login";
 import {
 	Container,
 	Grid,
