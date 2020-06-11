@@ -56,7 +56,7 @@ export const MainNavbar = () => {
 			return (
 				<div>
 					{/* <h4> {welcomeMessage}</h4> */}
-					<button onClick={clearToken}> Log Out</button>
+					<button className="logOutButton" onClick={clearToken}> Log Out</button>
 				</div>
 			);
 		}
@@ -64,10 +64,10 @@ export const MainNavbar = () => {
 
 	const logOffModal = (
 		<div style={modalStyle} className={classes.paper}>
-			<h2 id="simple-modal-title">See You Next Time!</h2>
-			<p id="simple-modal-description">
+			<h2 id="log-off-title">See You Next Time!</h2>
+			<h4 id="log-off-description">
 				Logging off...
-			</p>
+			</h4>
 		</div>
 	);
 
@@ -83,7 +83,7 @@ export const MainNavbar = () => {
 
 			{loggedInNav()}
 
-			
+
 			<Modal
 				open={open}
 				onClose={handleClose}
