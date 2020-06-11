@@ -12,7 +12,7 @@ import {
 	Box,
 	Typography,
 } from "@material-ui/core";
-import TestLine from "../ChartTwo";
+import TestLine from "../charts/ChartTwo";
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;

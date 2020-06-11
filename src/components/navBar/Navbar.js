@@ -2,11 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Modal, makeStyles } from "@material-ui/core";
 
-
 function getModalStyle() {
 	const top = 50;
 	const left = 50;
-
+	
 	return {
 		top: `${top}%`,
 		left: `${left}%`,
@@ -27,15 +26,16 @@ const useStyles = makeStyles((theme) => ({
 
 export const MainNavbar = () => {
 	const classes = useStyles();
-	const token = localStorage.getItem('token');
-	console.log("local storage: ", token);
+	const token = localStorage.getItem("token");
 	const [open, setOpen] = React.useState(false);
 	const [modalStyle] = React.useState(getModalStyle);
 
 	const clearToken = (props) => {
 		setOpen(true);
 		localStorage.clear(token);
-		setTimeout( function() {window.location.href = "../"}, 1000);
+		setTimeout(function () {
+			window.location.href = "../";
+		}, 1000);
 	};
 
 	const handleClose = () => {
@@ -56,7 +56,10 @@ export const MainNavbar = () => {
 			return (
 				<div>
 					{/* <h4> {welcomeMessage}</h4> */}
-					<button className="logOutButton" onClick={clearToken}> Log Out</button>
+					<button className="logOutButton" onClick={clearToken}>
+						{" "}
+						Log Out
+					</button>
 				</div>
 			);
 		}
@@ -65,9 +68,7 @@ export const MainNavbar = () => {
 	const logOffModal = (
 		<div style={modalStyle} className={classes.paper}>
 			<h2 id="log-off-title">See You Next Time!</h2>
-			<h4 id="log-off-description">
-				Logging off...
-			</h4>
+			<h4 id="log-off-description">Logging off...</h4>
 		</div>
 	);
 
@@ -82,7 +83,6 @@ export const MainNavbar = () => {
 			</a>
 
 			{loggedInNav()}
-
 
 			<Modal
 				open={open}

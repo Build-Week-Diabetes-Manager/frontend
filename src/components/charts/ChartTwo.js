@@ -1,7 +1,7 @@
 import React, {useState, useEffect,Component} from 'react';
 import { Line } from 'react-chartjs-2';
-import colors from './colors'
-import axiosWithAuth from '../utils/axiosWithAuth';
+import colors from '../colors'
+import axiosWithAuth from '../../utils/axiosWithAuth';
 
 const data = {
   labels: ['Breakfast', ' Elevensies', 'Lunch', 'Post Lunch', 'Dinner', 'Post Dinner'],

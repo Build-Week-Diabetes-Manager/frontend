@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react';
-import TestDoughnut from './ChartThree.js'
-import TestLine from './ChartTwo.js';
+import TestDoughnut from './charts/ChartThree'
+import TestLine from './charts/ChartTwo.js';
 import UserInput from './UserInput.js';
 import axiosWithAuth from '../utils/axiosWithAuth';
 

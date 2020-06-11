@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Line, Doughnut } from 'react-chartjs-2';
-import colors from './colors'
+import colors from '../colors'
+
 
 
 
