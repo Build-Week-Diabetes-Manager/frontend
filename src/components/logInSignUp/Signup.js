@@ -3,7 +3,9 @@ import axios from "axios";
 import * as Yup from "yup";
 import { Form, Field, withFormik } from "formik";
 import { BrowserRouter as Router,  Link } from "react-router-dom";
-import "../App.scss";
+import "../../App.scss";
+import { Alert } from "react-bootstrap";
+
 
 const SignUp = ({ errors, touched, values, status }) => {
 	const [newUsers, setNewUsers] = useState({});
@@ -19,7 +21,7 @@ const SignUp = ({ errors, touched, values, status }) => {
 		<div className="user-form">
 			<img
 				className="entryPortalLogo"
-				src={require("../img/logo/mono-flat-logo.svg")}
+				src={require("../../img/logo/mono-flat-logo.svg")}
 				href="/"
 				alt="Insuline Logo"
 			/>
@@ -71,7 +73,8 @@ const SignUpForm = withFormik({
 			})
 			.then((res) => {
 				console.log(res);
-				props.history.push("/login");
+				window.location.replace("/login");
+				alert("Sign up successful, Please log in on the next screen")
 				resetForm();
 			})
 			.catch((error) => {

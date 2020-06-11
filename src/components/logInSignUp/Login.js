@@ -6,7 +6,7 @@ import * as Yup from "yup";
 import { Form, Field, withFormik } from "formik";
 
 // Styling
-import "../App.scss";
+import "../../App.scss";
 
 const UserForm = ({ errors, touched, values, handleSubmit, status }) => {
 	const [users, setUsers] = useState([]);
@@ -23,7 +23,7 @@ const UserForm = ({ errors, touched, values, handleSubmit, status }) => {
 		<div className="user-form">
 			<img
 				className="entryPortalLogo"
-				src={require("../img/logo/mono-flat-logo.svg")}
+				src={require("../../img/logo/mono-flat-logo.svg")}
 				href="/"
 				alt="Insuline Logo"
 			/>
@@ -68,10 +68,10 @@ const Login = withFormik({
 		axios
 			.post("https://diabetesmanager.herokuapp.com/api/users/login", values)
 			.then((res) => {
-				console.log("this is my res", res);
+				// console.log("this is my res", res);
 				localStorage.setItem("user_id", res.data.userId);
 				localStorage.setItem("token", res.data.token);
-				props.history.push("/dashboard");
+				window.location.replace("/dashboard");
 			})
 			.catch((err) => console.log(err.response));
 	},

@@ -4,9 +4,9 @@ import "./App.scss";
 
 import PrivateRoute from "./components/PrivateRoute";
 import Dashboard from "./components/Dashboard";
-import Login from "./components/Login";
-import SignUp from "./components/Signup.js";
-import MainNavbar from "./components/Navbar";
+import Login from "./components/logInSignUp/Login";
+import SignUp from "./components/logInSignUp/Signup";
+import MainNavbar from "./components/navBar/Navbar";
 import { SplashPage } from "./components/splashPage/SplashPage";
 
 
