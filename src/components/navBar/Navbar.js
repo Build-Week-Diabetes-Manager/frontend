@@ -56,7 +56,7 @@ export const MainNavbar = () => {
 			return (
 				<div>
 					{/* <h4> {welcomeMessage}</h4> */}
-					<button onClick={clearToken}> Log Out</button>
+					<button className="logOutButton" onClick={clearToken}> Log Out</button>
 				</div>
 			);
 		}
@@ -83,7 +83,7 @@ export const MainNavbar = () => {
 
 			{loggedInNav()}
 
-			
+
 			<Modal
 				open={open}
 				onClose={handleClose}
