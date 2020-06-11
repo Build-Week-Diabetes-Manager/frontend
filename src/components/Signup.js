@@ -59,7 +59,7 @@ const SignUpForm = withFormik({
 	},
 
 	validationSchema: Yup.object().shape({
-		username: Yup.string().required("Please Fill in the blank"),
+		username: Yup.string().required("Please create a username."),
 		password: Yup.string().required("Please use a secure password that isn't your bank password."),
 	}),
 
