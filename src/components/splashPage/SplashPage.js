@@ -12,6 +12,7 @@ import {
 	Typography,
 } from "@material-ui/core";
 import TestLine from "../charts/ChartTwo";
+import ExampleChart from "./SampleChart";
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -92,7 +93,7 @@ export function SplashPage() {
 				<TabPanel value={value} index={1}>
 					<h1 className="splashHeader">How Does Insuline Work?</h1>
 					<Paper className="sampleGraph">
-						<TestLine />
+						<ExampleChart />
 					</Paper>
 
 					<p className="splashBody">
