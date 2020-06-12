@@ -70,7 +70,7 @@ export function SplashPage() {
 				<TabPanel value={value} index={0}>
 					<h1 className="splashHeader"> Welcome to Insuline</h1>
 					<p className="splashBody">
-						Insuline is a mobile friendly dashboard meant to predict a diabetic user's
+						Insuline is a friendly dashboard meant to predict a diabetic user's
 						blood glucose level over an extended period of time*. The project was
 						built with ReactJS, Formik, and Chart.js.
 					</p>

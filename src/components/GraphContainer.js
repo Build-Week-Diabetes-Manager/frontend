@@ -11,17 +11,17 @@ const GraphContainer = () => {
 	const [graphData, setGraphData] = useState({});
 	const id = localStorage.getItem("user_id");
 
-	useEffect(() => {
-		axiosWithAuth()
-			.get(`https://diabetesmanager.herokuapp.com/api/manager/manage/ds/${id}`)
-			.then((res) => {
-				setGraphData(res.data);
-			})
-			.catch((err) => console.log("axios err: ", err));
-	}, []);
+	// useEffect(() => {
+	// 	axiosWithAuth()
+	// 		.get(`https://diabetesmanager.herokuapp.com/api/manager/manage/ds/1`)
+	// 		.then((res) => {
+	// 			setGraphData(res.data);
+	// 		})
+	// 		.catch((err) => console.log("axios err: ", err));
+	// }, []);
 
 	return (
-		<Grid container spacing={0}>
+		<Grid container spacing={2}>
 			<Grid item className="graph-one" sm={12} lg={6}>
 				<TestDoughnut />
 			</Grid>
