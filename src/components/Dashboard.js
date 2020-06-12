@@ -62,8 +62,6 @@ const Dashboard = () => {
                     <div className="view-container">
                         <div className="component-container">
                             {home ? <DashHome/> : <GraphContainer/>}
-                            {/* <Route exact path="/" component={DashHome} />
-                            <Route path="/graph" component={GraphContainer}  /> */}
                         </div>
                     </div>
 

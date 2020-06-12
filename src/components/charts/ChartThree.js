@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
-import { Line, Doughnut } from 'react-chartjs-2';
-import colors from './colors'
+import { Doughnut } from 'react-chartjs-2';
+import colors from '../colors'
 
 
+
+/**********DONUT CHART  *******************/
 
 const data = {
   labels: ['UserDaily GL', 'Predicted GL'],

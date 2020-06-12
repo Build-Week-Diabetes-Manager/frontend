@@ -4,7 +4,6 @@ const colors = {
     paperWhite: "#fffbfa",
     mossgreen: "8bd7d2",
     spearmint:"#00bd9b"
-
 }
 
 export default colors;

@@ -3,7 +3,6 @@ import "./SplashPage.scss";
 import SignUp from "../logInSignUp/Signup";
 import Login from "../logInSignUp/Login";
 import {
-	Container,
 	Grid,
 	Paper,
 	AppBar,
@@ -12,7 +11,7 @@ import {
 	Box,
 	Typography,
 } from "@material-ui/core";
-import TestLine from "../ChartTwo";
+import TestLine from "../charts/ChartTwo";
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -71,7 +70,7 @@ export function SplashPage() {
 				<TabPanel value={value} index={0}>
 					<h1 className="splashHeader"> Welcome to Insuline</h1>
 					<p className="splashBody">
-						Insuline is a mobile friendly dashboard meant to predict a diabetic user's
+						Insuline is a friendly dashboard meant to predict a diabetic user's
 						blood glucose level over an extended period of time*. The project was
 						built with ReactJS, Formik, and Chart.js.
 					</p>
