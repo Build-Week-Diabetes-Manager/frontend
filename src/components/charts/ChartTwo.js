@@ -8,13 +8,21 @@ const sampleUserData = [80, 90, 70, 64, 123];
 
 export const TestLine = (props) => {
 	const [newData, setNewData] = useState({});
-	const [updateData, setUpdateData]  = useState();
+	const [updateData, setUpdateData] = useState();
 	const id = localStorage.getItem("user_id");
+	console.log(`id: ${id}`);
 
 	const glucoseLineChart = () => {
 		console.log("Ping");
 		setNewData({
-			labels: ["6 AM", "11 AM", "12 PM", "1 PM", "6 PM", "7 PM"],
+			labels:[
+				'pre-breakfast blood glucose measurement',
+				'post-breakfast blood glucose measurement',
+				'pre-lunch blood glucose measurement',
+				'post-lunch blood glucose measurement',
+				'pre-supper blood glucose measurement',
+				'post-supper blood glucose measurement',
+			],
 			datasets: [
 				{
 					label: "Predicted Glucose Levels",
@@ -64,9 +72,10 @@ export const TestLine = (props) => {
 
 	useEffect(() => {
 		glucoseLineChart();
-	},[updateData])
+	}, [updateData]);
 
 	useEffect(() => {
+		console.log("Pre API Call", newData)
 		axiosWithAuth()
 			.get(`https://diabetesmanager.herokuapp.com/api/manager/manage/ds/1`)
 			.then((res) => {
@@ -74,14 +83,11 @@ export const TestLine = (props) => {
 				setNewData(newData, (newData.datasets[0].data = Object.values(res.data)));
 			})
 			.catch((err) => console.log("axios err: ", err));
-	}, []);
-
-	// /api/manage/manager/:id
-	useEffect(() => {
 		axiosWithAuth()
-			.get(`https://diabetesmanager.herokuapp.com/api/manager/manage/1`)
+			.get(`https://diabetesmanager.herokuapp.com/api/manager/manage/${id}`)
 			.then((res) => {
-				console.log("user data", res);
+				// console.log("user data", res);
+				console.log("After API call", newData);
 				setNewData(
 					newData,
 					(newData.datasets[1].data = res.data.map((el) => el.value))
@@ -90,12 +96,6 @@ export const TestLine = (props) => {
 			.catch((err) => console.log("axios err: ", err));
 	}, []);
 
-
-
-	useEffect(() => {
-		console.log("newData.datasets:", newData.datasets);
-
-	},[newData.datasets])
 
 	return (
 		<div>
