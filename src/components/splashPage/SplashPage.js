@@ -3,7 +3,6 @@ import "./SplashPage.scss";
 import SignUp from "../logInSignUp/Signup";
 import Login from "../logInSignUp/Login";
 import {
-	Container,
 	Grid,
 	Paper,
 	AppBar,
