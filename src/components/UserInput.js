@@ -143,7 +143,7 @@ const Form = (props) => {
 
     return (
         <>
-        <form className='user-input-form'onSubmit={event => handleGlucoseSubmit(event)}>
+        <form className='user-input-form' onSubmit={event => handleGlucoseSubmit(event)}>
             <label><p>Glucose Measurement Time</p></label>
             <Select className='select-drop'
                 // value={glucose.code} commented out to get values to display in select dropdown
@@ -190,7 +190,7 @@ const Form = (props) => {
 }
 
 const mapStateToProps = state => {
-    console.log('formstate', state);
+    // console.log('formstate', state);
     return {
         data: state.diadata
     }

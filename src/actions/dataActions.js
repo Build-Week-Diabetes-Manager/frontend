@@ -10,6 +10,7 @@ export const getData = (state,id) => {
         toSend.push(state);
         console.log('actionInvoked');
         console.log('tosend', toSend);
+        const id = localStorage.user_id
         dispatch({ type: FETCH_DATA_START });
         axiosWithAuth()
             .post(`https://diabetesmanager.herokuapp.com/api/manager/manage/ds/${id}`, toSend)
