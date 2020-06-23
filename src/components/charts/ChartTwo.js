@@ -3,6 +3,8 @@ import { Line } from "react-chartjs-2";
 import colors from "../colors";
 import axiosWithAuth from "../../utils/axiosWithAuth";
 
+import {getData} from "../../actions/dataActions"
+
 const testData = [60, 150, 200, 15, 88, 34];
 const sampleUserData = [80, 90, 70, 64, 123];
 
@@ -77,17 +79,18 @@ export const TestLine = (props) => {
 		axiosWithAuth()
 			.get(`https://diabetesmanager.herokuapp.com/api/manager/manage/${id}`)
 			.then((res) => {
-				console.log("user data", res);
+				// console.log("user data", res);
 				setNewData(
 					newData,
 					(newData.datasets[1].data = res.data.map((el) => el.value))
 				);
 			})
+			// .then(getData())
 			.catch((err) => console.log("axios err: ", err));
 			axiosWithAuth()
-				.get(`https://diabetesmanager.herokuapp.com/api/manager/manage/ds/${id}`)
+				.get(`https://diabetesmanager.herokuapp.com/api/manager/manage/ds/1`)
 				.then((res) => {
-					console.log("ds response", res);
+					// console.log("ds response", res);
 					setNewData(newData, (newData.datasets[0].data = Object.values(res.data)));
 				})
 				.catch((err) => console.log("axios err: ", err));
