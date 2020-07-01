@@ -1,6 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Modal, makeStyles } from "@material-ui/core";
+import { makeStyles, Modal } from "@material-ui/core";
 
 function getModalStyle() {
 	const top = 50;

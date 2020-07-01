@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useContext } from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
-
 import axios from "axios";
+import { Field, Form, withFormik } from "formik";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import * as Yup from "yup";
-import { Form, Field, withFormik } from "formik";
-
 // Styling
 import "../../App.scss";
+
+
 
 const UserForm = ({ errors, touched, values, handleSubmit, status }) => {
 	const [users, setUsers] = useState([]);

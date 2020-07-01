@@ -1,7 +1,6 @@
-import React, { useState, useEffect, Component } from "react";
+import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import colors from "../colors";
-import axiosWithAuth from "../../utils/axiosWithAuth";
 
 const testData = [60, 150, 200, 15, 88, 34];
 const sampleUserData = [80, 90, 70, 64, 123];

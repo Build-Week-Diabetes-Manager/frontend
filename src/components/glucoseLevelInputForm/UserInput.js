@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
-import Select from "react-select";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import DateTimePicker from "react-datetime-picker";
-import axiosWithAuth from "../../utils/axiosWithAuth";
+import Select from "react-select";
 import { getData, postUserBGL } from "../../actions/dataActions";
+import axiosWithAuth from "../../utils/axiosWithAuth";
 
 const glucoseOptions = [
 	{ value: 57, label: "unspecified blood glucose measurement" },
