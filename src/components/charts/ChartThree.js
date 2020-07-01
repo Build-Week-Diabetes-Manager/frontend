@@ -1,19 +1,20 @@
 import React, {Component} from 'react';
-import { Doughnut } from 'react-chartjs-2';
+import { Doughnut, Bar } from 'react-chartjs-2';
 import colors from '../colors'
 
 
 
 /**********DONUT CHART  *******************/
 
+
 const data = {
-  labels: ['UserDaily GL', 'Predicted GL'],
+  labels: [],
   datasets: [
     {
       label: 'Predicted Glucose Levels',
       fill: false,
       lineTension: 0.1,
-      backgroundColor: colors.skyblue,
+      backgroundColor: '#555',
       borderColor: colors.skyblue,
       borderCapStyle: 'butt',
       borderDash: [],
@@ -28,7 +29,7 @@ const data = {
       pointHoverBorderWidth: 2,
       pointRadius: 1,
       pointHitRadius: 10,
-      data: [35,120]
+      data: [380]
     },
     {
         label: 'Actual Glucose Level',
@@ -54,12 +55,18 @@ const data = {
   ]
 };
 
+const conditionalColor = () =>{
+
+console.log(data)
+
+}
+
 export default class  extends Component {
   render() {
     return (
       <div>
-        <h2>Your Current GCL VS Current Predicted GCL</h2>
-        <Doughnut ref="chart" data={data} options={{
+        <h2>Expected Mean Blood Glucose Level (mg/dl)</h2>
+        <Bar ref="chart" data={data} options={{
         legend: {
             position:'bottom',
         }

@@ -52,7 +52,7 @@ export const MainNavbar = () => {
 
 	const loggedInNav = () => {
 		if (token) {
-			console.log("Token is present");
+			// console.log("Token is present");
 			return (
 				<div>
 					{/* <h4> {welcomeMessage}</h4> */}
