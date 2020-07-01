@@ -46,6 +46,7 @@ export const TestLine = (props) => {
 					res.data.forEach(el => {
 						emptyUser.push(el.value)
 					});
+					
 					setNewData({
 						labels:[
 							'pre-breakfast blood glucose measurement',
