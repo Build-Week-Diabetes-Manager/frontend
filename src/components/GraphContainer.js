@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { Grid } from "@material-ui/core";
+import React, { useState } from "react";
 import TestDoughnut from "./charts/ChartThree";
 import TestLine from "./charts/ChartTwo.js";
 import UserInput from "./glucoseLevelInputForm/UserInput";
-import axiosWithAuth from "../utils/axiosWithAuth";
-import {Grid} from "@material-ui/core";
 
 // import "../components/charts/charts.scss"
 

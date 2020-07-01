@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Field, Form, withFormik } from "formik";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import * as Yup from "yup";
-import { Form, Field, withFormik } from "formik";
-import { BrowserRouter as Router,  Link } from "react-router-dom";
 import "../../App.scss";
-import { Alert } from "react-bootstrap";
 
 
 const SignUp = ({ errors, touched, values, status }) => {
