@@ -38,7 +38,6 @@ export const TestLine = (props) => {
 				temp.forEach(el =>{
 					emptyPred.push(Math.floor(el))
 				})
-				
 				axiosWithAuth()
 				.get(`https://diabetesmanager.herokuapp.com/api/manager/${id}`)
 				.then((res) => {
