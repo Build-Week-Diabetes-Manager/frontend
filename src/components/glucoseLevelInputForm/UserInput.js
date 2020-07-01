@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import Select from "react-select";
 import { connect } from "react-redux";
 import DateTimePicker from "react-datetime-picker";
-import axiosWithAuth from "../utils/axiosWithAuth";
-import { getData } from "../actions/dataActions";
+import axiosWithAuth from "../../utils/axiosWithAuth";
+import { getData, postUserBGL } from "../../actions/dataActions";
 
 const glucoseOptions = [
 	{ value: 57, label: "unspecified blood glucose measurement" },
@@ -21,12 +21,16 @@ const insulineType = [
 	{ value: 35, label: "UltraLente insuline dose" },
 ];
 
+const userId = () => {
+	return parseInt(localStorage.getItem("user_id"));
+};
+
 const Form = (props) => {
 	const [glucose, setGlucose] = useState([{
 		timestamp: "",
 		code: "",
 		value: "",
-		user_id: "",
+		user_id: 0,
 	}]);
 
 	const [regular, setRegular] = useState({ timestamp: "", code: "", value: "" });
@@ -37,9 +41,7 @@ const Form = (props) => {
 		value: "",
     });
     
-    const userId = () => {
-		return localStorage.getItem("user_id");
-    };
+
 
 	//convert these with custom hooks
 	//modularize handleselect, and handlechange + edit corresponding input fields
@@ -70,6 +72,7 @@ const Form = (props) => {
 	};
 
 	const post = (state) => {
+		console.log(state);
 		axiosWithAuth()
 			.post(`https://diabetesmanager.herokuapp.com/api/manager/manage`, state)
 			.then((res) => {
@@ -78,36 +81,12 @@ const Form = (props) => {
 			})
 			.catch((err) => console.error(err));
 	};
-
-	// const dsPost = (state) => {
-	//     const arr = [];
-	//     arr.push(state);
-	//     axiosWithAuth()
-	//         .post(`https://diabetesmanager.herokuapp.com/api/manager/manage`,arr)
-	//         .then(res => console.log('ds res', res))
-	//         .catch(err => console.error(err))
-	// }
-
-	// const post = (state) => {
-	//     if(state.timestamp) {
-	//         axiosWithAuth()
-	//         .post(`https://diabetesmanager.herokuapp.com/api/manager/manage`,state)
-	//         .then(res => console.log('post res', res))
-	//         .catch(err => console.error(err))
-	//     }
-	// }
-
-
-    
-    console.log("*** ", userId());
     
 	const handleGlucoseSubmit = (event) => {
+		console.log("glucose on submit", glucose);
         event.preventDefault();
-        // console.log("B4 glucose: ", glucose)
-		// setGlucose({...glucose, timestamp: currentTime(), user_id: 60 });
-		// console.log("glucose! ", glucose);
-		post(glucose);
-		props.getData(glucose); //maybe delete later
+		props.postUserBGL(glucose);
+		props.getData(glucose);
 	};
 
 	//refactor to check if state is complete, and modularize
@@ -271,4 +250,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps, { getData })(Form);
+export default connect(mapStateToProps, { getData, postUserBGL })(Form);

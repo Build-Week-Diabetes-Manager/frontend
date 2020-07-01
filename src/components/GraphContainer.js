@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TestDoughnut from "./charts/ChartThree";
 import TestLine from "./charts/ChartTwo.js";
-import UserInput from "./UserInput.js";
+import UserInput from "./glucoseLevelInputForm/UserInput";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import {Grid} from "@material-ui/core";
 

@@ -19,6 +19,7 @@ export const TestLine = (props) => {
 		// console.log("Ping");
 		setNewData({
 			labels: [
+				"Undefined",
 				"Pre-Breakfast",
 				"Post-Breakfast",
 				"Pre-Lunch",
@@ -84,6 +85,7 @@ export const TestLine = (props) => {
 					newData,
 					(newData.datasets[1].data = res.data.map((el) => el.value))
 				);
+				console.log("newdata: ", newData)
 			})
 			// .then(getData())
 			.catch((err) => console.log("axios err: ", err));
