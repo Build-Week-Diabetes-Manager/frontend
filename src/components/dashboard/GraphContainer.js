@@ -1,26 +1,14 @@
 import { Grid } from "@material-ui/core";
-import React, { useState } from "react";
+import React from "react";
 import TestDoughnut from "../charts/ChartThree";
 import TestLine from "../charts/ChartTwo.js";
 import UserInput from "../glucoseLevelInputForm/UserInput";
 
-// import "../components/charts/charts.scss"
 
 const GraphContainer = () => {
-	const [graphData, setGraphData] = useState({});
-	const id = localStorage.getItem("user_id");
-
-	// useEffect(() => {
-	// 	axiosWithAuth()
-	// 		.get(`https://diabetesmanager.herokuapp.com/api/manager/manage/ds/1`)
-	// 		.then((res) => {
-	// 			setGraphData(res.data);
-	// 		})
-	// 		.catch((err) => console.log("axios err: ", err));
-	// }, []);
 
 	return (
-		<Grid container spacing={2} alignContent='space-between'>
+		<Grid container spacing={2} >
 			<Grid item className="graphs graph-one" sm={12} lg={6}>
 				<TestDoughnut />
 			</Grid>
