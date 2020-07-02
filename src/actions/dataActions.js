@@ -21,6 +21,7 @@ export const getData = (state) => {
 		axiosWithAuth()
 			.get(`${ENDPOINT}ds/${id}`, toSend)
 			.then((res) => {
+
 				dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data });
 			})
 			.catch((err) => dispatch({ type: FETCH_DATA_FAILURE, payload: err }));

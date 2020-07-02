@@ -27,7 +27,7 @@ const Dashboard = () => {
 		<div className="Container dashboard-container">
 			<TabContainer defaultActiveKey="home">
 				<Row>
-					<Col>
+					<Col >
 						<Nav className="flex-column">
 							<div className="icon-container">
 

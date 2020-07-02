@@ -1,38 +1,30 @@
 import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
-import axiosWithAuth from "../../utils/axiosWithAuth";
+import { connect } from "react-redux";
+import { getData } from "../../actions/dataActions";
 import colors from "../colors";
 
-import { connect, subscribe, getState } from "react-redux";
-import { getData } from "../../actions/dataActions";
 
 const testData = [60, 150, 200, 15, 88, 34];
-const sampleUserData = [80, 90, 70, 64, 123];
+const samplepredictedData = [80, 90, 70, 64, 123];
 
-const objectToArray = (object) =>{
-	console.log("object: ", object);
-	let newArray = [];
 
-    for(let i = 0; i in object; i++){
-		console.log(object)
-		newArray.push(object.value)
-    }
-}
-
-export const TestLine = (props, chartData, getData ) => {
+export const TestLine = (props ) => {
 	const [newData, setNewData] = useState({});
-	const [userData, setUserData] = useState(props.chartData);
 	const [updateData, setUpdateData] = useState(false);
-	const id = localStorage.getItem("user_id");
-	
-	
-	
 
-	const glucoseLineChart = () => {
+	let { getData, chartData } = props;
+
+
+	let bglArray = Object.values(chartData);
+	const [predictedData, setPredictedData] = useState(bglArray);
+
+	console.log("chartdata: ", bglArray, "predictedData: ", predictedData );
+
+	const glucoseLineChart = (userBGL, predictedBGL) => {
 
 		setNewData({
 			labels: [
-				"Undefined",
 				"Pre-Breakfast",
 				"Post-Breakfast",
 				"Pre-Lunch",
@@ -60,7 +52,7 @@ export const TestLine = (props, chartData, getData ) => {
 					pointHoverBorderWidth: 2,
 					pointRadius: 1,
 					pointHitRadius: 10,
-					data: testData,
+					data: predictedData,
 				},
 				{
 					label: `User's Glucose Level`,
@@ -89,18 +81,16 @@ export const TestLine = (props, chartData, getData ) => {
 
 
 	useEffect(() => {
-		props.getData();
-	}, [updateData]);
+		getData()
+	},[]);
 
-	console.log("userData: ", userData);
+	useEffect(() => {
+		setPredictedData(bglArray);
+	},[chartData])
+
 	useEffect(() => {
 		glucoseLineChart();
-	}, [chartData]);
-
-	
-	// props.chartData.subscribe(() => {
-	// 	console.log(props.chartData.getState())
-	// })
+	}, [predictedData]);
 
 	return (
 		<div>
