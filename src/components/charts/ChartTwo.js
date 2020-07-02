@@ -1,27 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import { connect } from "react-redux";
-import { getData } from "../../actions/dataActions";
+import { getData, getUserBGL } from "../../actions/dataActions";
 import colors from "../colors";
 
 
-const testData = [60, 150, 200, 15, 88, 34];
-const samplepredictedData = [80, 90, 70, 64, 123];
-
-
-export const TestLine = (props ) => {
+export const TestLine = (props) => {
 	const [newData, setNewData] = useState({});
-	const [updateData, setUpdateData] = useState(false);
 
-	let { getData, chartData } = props;
-
+	let { getData, chartData, getUserBGL, userBGLData } = props;
 
 	let bglArray = Object.values(chartData);
 	const [predictedData, setPredictedData] = useState(bglArray);
 
-	console.log("chartdata: ", bglArray, "predictedData: ", predictedData );
+	console.log(userBGLData);
 
-	const glucoseLineChart = (userBGL, predictedBGL) => {
+	const glucoseLineChart = () => {
 
 		setNewData({
 			labels: [
@@ -73,7 +67,7 @@ export const TestLine = (props ) => {
 					pointHoverBorderWidth: 2,
 					pointRadius: 1,
 					pointHitRadius: 10,
-					data: [50,200,300],
+					data: userBGLData,
 				},
 			],
 		});
@@ -81,7 +75,8 @@ export const TestLine = (props ) => {
 
 
 	useEffect(() => {
-		getData()
+		getData();
+		getUserBGL();
 	},[]);
 
 	useEffect(() => {
@@ -106,6 +101,7 @@ export const TestLine = (props ) => {
 				}}
 			/>
 			<button onClick={props.getData}>Refresh</button>
+			<button onClick={props.getUserBGL}>Get User BGL</button>
 		</div>
 	);
 };
@@ -114,7 +110,8 @@ export const TestLine = (props ) => {
 function mapStateToProps(state){
 	return{
 		chartData: state.dataReducer.diadata,
+		userBGLData: state.dataReducer.userBGLData,
 	}
 }
 
-export default connect(mapStateToProps, {getData})(TestLine);
+export default connect(mapStateToProps, {getData, getUserBGL})(TestLine);

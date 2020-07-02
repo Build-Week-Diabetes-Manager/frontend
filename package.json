@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/core": "^7.10.4",
     "@material-ui/core": "^4.11.0",
     "axios": "^0.19.2",
     "chart.js": "^2.9.3",
@@ -45,5 +46,8 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "babel-loader": "^8.1.0"
+  }
 }
