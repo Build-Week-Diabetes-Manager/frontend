@@ -42,14 +42,12 @@ export const dataReducer = (state = initialState, action) => {
 				error: action.payload,
 			};
 		case FETCH_USER_DATA_START:
-			console.log("start Fetch reducers");
 
 			return {
 				...state,
 				isLoading: true,
 			};
 		case FETCH_USER_DATA_SUCCESS:
-			console.log("ping: ", action.payload);
 			return {
 				...state,
 				isLoading: false,
@@ -66,31 +64,3 @@ export const dataReducer = (state = initialState, action) => {
 			return state;
 	}
 };
-
-// export const userDataReducer = (state = initialState, action) => {
-// 	switch (action.type) {
-// 		case FETCH_USER_DATA_START:
-// 			console.log("start Fetch reducers");
-
-// 			return {
-// 				...state,
-// 				isLoading: true,
-// 			};
-// 		case FETCH_USER_DATA_SUCCESS:
-// 			console.log("ping: ", action.payload);
-// 			return {
-// 				...state,
-// 				isLoading: false,
-// 				error: "",
-// 				userBGLData: action.payload,
-// 			};
-// 		case FETCH_USER_DATA_FAILURE:
-// 			return {
-// 				...state,
-// 				isLoading: false,
-// 				error: action.payload,
-// 			};
-// 		default:
-// 			return state;
-// 	}
-// };

@@ -5,6 +5,7 @@ import { getData, getUserBGL } from "../../actions/dataActions";
 import colors from "../colors";
 
 
+
 export const TestLine = (props) => {
 	const [newData, setNewData] = useState({});
 
@@ -13,7 +14,6 @@ export const TestLine = (props) => {
 	let bglArray = Object.values(chartData);
 	const [predictedData, setPredictedData] = useState(bglArray);
 
-	console.log(userBGLData);
 
 	const glucoseLineChart = () => {
 
@@ -74,6 +74,10 @@ export const TestLine = (props) => {
 	};
 
 
+	const handleRefresh =() =>{
+		getData();
+		getUserBGL();
+	}
 	useEffect(() => {
 		getData();
 		getUserBGL();
@@ -100,8 +104,7 @@ export const TestLine = (props) => {
 					position: "bottom",
 				}}
 			/>
-			<button onClick={props.getData}>Refresh</button>
-			<button onClick={props.getUserBGL}>Get User BGL</button>
+			<button onClick={handleRefresh}>Refresh</button>
 		</div>
 	);
 };

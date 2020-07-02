@@ -31,7 +31,6 @@ export const getData = (state) => {
 };
 
 export const getUserBGL = (state) => {
-	console.log(`Fetching User stats: ${state}`);
 	const userBGLArray = [];
 
 	return (dispatch) => {
@@ -42,25 +41,24 @@ export const getUserBGL = (state) => {
 				res.data.forEach(el => {
 					userBGLArray.push(el.value)
 				});
-				console.log(userBGLArray);
+				// console.log(userBGLArray);
 
 				dispatch({ type: FETCH_USER_DATA_SUCCESS, payload: userBGLArray });
 			})
 			.catch((err) => {
-				console.log("User Data fetch Error: ", err);
 				dispatch({ type: FETCH_USER_DATA_FAILURE, payload: err });
 			});
 	};
 };
 
 export const postUserBGL = (state) => {
-	console.log("Posting User BGL", state);
+	// console.log("Posting User BGL", state);
 	return (dispatch) => {
 		dispatch({ type: POST_USER_DATA_START });
 		axiosWithAuth()
 			.post(`${ENDPOINT}`, state)
 			.then((res) => {
-				console.log("PostUserBGL resp");
+				// console.log("PostUserBGL resp");
 				dispatch({ type: POST_USER_DATA_SUCCESS });
 			})
 			.catch((err) => {
