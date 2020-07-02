@@ -25,12 +25,7 @@ const userId = () => {
 };
 
 const Form = (props) => {
-	const [glucose, setGlucose] = useState([{
-		timestamp: "",
-		code: "",
-		value: "",
-		user_id: 0,
-	}]);
+	const [glucose, setGlucose] = useState([]);
 
 	const [regular, setRegular] = useState({ timestamp: "", code: "", value: "" });
 	const [nph, setNph] = useState({ timestamp: "", code: "", value: "" });

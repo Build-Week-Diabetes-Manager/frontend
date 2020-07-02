@@ -8,29 +8,28 @@ export const POST_USER_DATA_START = "POST_USER_DATA_START";
 export const POST_USER_DATA_SUCCESS = "POST_USER_DATA_SUCCESS";
 export const POST_USER_DATA_FAILURE = "POST_USER_DATA_FAILURE";
 
-const ENDPOINT = "https://diabetesmanager.herokuapp.com/api/manager/manage/";
+const ENDPOINT = "https://diabetesmanager.herokuapp.com/api/manager/";
+
 
 export const getData = (state) => {
 	return (dispatch) => {
 		const toSend = [];
-		const id = state.user_id;
+		const id = localStorage.user_id;
 		toSend.push(state);
-		console.log("actionInvoked");
 
 		dispatch({ type: FETCH_DATA_START });
 		axiosWithAuth()
 			.get(`${ENDPOINT}ds/${id}`, toSend)
 			.then((res) => {
-				console.log("resdata", res);
-				dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data.data });
+				dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data });
 			})
 			.catch((err) => dispatch({ type: FETCH_DATA_FAILURE, payload: err }));
 	};
 };
 
 export const postUserBGL = (state) => {
+	console.log("Posting User BGL", state)
 	return (dispatch) => {
-        console.log("Posting User BGL", console.log(state))
 		dispatch({ type: POST_USER_DATA_START });
 		axiosWithAuth()
 			.post(`${ENDPOINT}`, state)
