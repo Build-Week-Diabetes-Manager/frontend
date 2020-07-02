@@ -13,11 +13,12 @@ import { logger } from 'redux-logger';
 import './index.scss';
 // Components
 import App from './App';
-import { dataReducer } from "./reducers/dataReducer"
+import rootReducer from "./reducers/index";
+
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 // ADD LOGGER TO END OF MIDDLEWARE AFTER INSTALLING redux-logger
-const store = createStore(dataReducer, composeEnhancers(applyMiddleware(thunk, logger)))
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk, logger)))
 
 ReactDOM.render(
 <Provider store={store}> 

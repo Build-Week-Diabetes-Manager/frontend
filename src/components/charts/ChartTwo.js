@@ -1,7 +1,8 @@
-import React, { useState, useEffect, Component } from "react";
+import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
-import colors from "../colors";
 import axiosWithAuth from "../../utils/axiosWithAuth";
+import colors from "../colors";
+
 
 const testData = [60, 150, 200, 15, 88, 34];
 const sampleUserData = [80, 90, 70, 64, 123];
@@ -21,9 +22,7 @@ export const TestLine = (props) => {
 
 	};
 
-	useEffect(() => {
-		glucoseLineChart();
-	}, [updateData]);
+
 
 	useEffect(() => {
 		
@@ -48,12 +47,12 @@ export const TestLine = (props) => {
 					});
 					setNewData({
 						labels:[
-							'pre-breakfast blood glucose measurement',
-							'post-breakfast blood glucose measurement',
-							'pre-lunch blood glucose measurement',
-							'post-lunch blood glucose measurement',
-							'pre-supper blood glucose measurement',
-							'post-supper blood glucose measurement',
+							'pre-breakfast',
+							'post-breakfast',
+							'pre-lunch',
+							'post-lunch',
+							'pre-supper',
+							'post-supper',
 						],
 						datasets: [
 							{
@@ -103,14 +102,19 @@ export const TestLine = (props) => {
 				})
 				.catch((err) => console.log("axios err: ", err));
 			})
+			// .then(getData())
 			.catch((err) => console.log("axios err: ", err));
 
 	}, []);
 
 
+	useEffect(() => {
+		glucoseLineChart();
+	}, []);
+
 	return (
 		<div>
-			<h2>Daily Mean Blood Glucose Levels</h2>
+			<h2>Daily Mean Glucose Levels (mg/dl)</h2>
 			<Line
 				data={newData}
 				options={{

@@ -1,6 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Modal, makeStyles } from "@material-ui/core";
+import { makeStyles, Modal } from "@material-ui/core";
 
 function getModalStyle() {
 	const top = 50;
@@ -52,7 +51,7 @@ export const MainNavbar = () => {
 
 	const loggedInNav = () => {
 		if (token) {
-			console.log("Token is present");
+			// console.log("Token is present");
 			return (
 				<div>
 					{/* <h4> {welcomeMessage}</h4> */}

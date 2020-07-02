@@ -1,18 +1,20 @@
-import React from "react";
-import "./SplashPage.scss";
-import SignUp from "../logInSignUp/Signup";
-import Login from "../logInSignUp/Login";
 import {
-	Grid,
-	Paper,
 	AppBar,
+
+
+	Box, Grid,
+	Paper,
+
 	Tab,
 	Tabs,
-	Box,
-	Typography,
+
+	Typography
 } from "@material-ui/core";
-import TestLine from "../charts/ChartTwo";
+import React from "react";
+import Login from "../logInSignUp/Login";
+import SignUp from "../logInSignUp/Signup";
 import ExampleChart from "./SampleChart";
+import "./SplashPage.scss";
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;

@@ -60,9 +60,7 @@ const Dashboard = () => {
                         {/* {console.log("USEEER", user)} */}
                     </div>
                     <div className="view-container">
-                        <div className="component-container">
                             {home ? <DashHome/> : <GraphContainer/>}
-                        </div>
                     </div>
 
 
