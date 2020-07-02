@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./App.scss";
 
-import PrivateRoute from "./components/PrivateRoute";
-import Dashboard from "./components/Dashboard";
+import PrivateRoute from "./components/auth/PrivateRoute";
+import Dashboard from "./components/dashboard/Dashboard";
 import Login from "./components/logInSignUp/Login";
 import SignUp from "./components/logInSignUp/Signup";
 import MainNavbar from "./components/navBar/Navbar";

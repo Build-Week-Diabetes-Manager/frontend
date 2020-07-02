@@ -3,19 +3,33 @@ import { Line } from "react-chartjs-2";
 import axiosWithAuth from "../../utils/axiosWithAuth";
 import colors from "../colors";
 
+import { connect, subscribe, getState } from "react-redux";
+import { getData } from "../../actions/dataActions";
 
 const testData = [60, 150, 200, 15, 88, 34];
 const sampleUserData = [80, 90, 70, 64, 123];
 
-export const TestLine = (props) => {
+const objectToArray = (object) =>{
+	console.log("object: ", object);
+	let newArray = [];
+
+    for(let i = 0; i in object; i++){
+		console.log(object)
+		newArray.push(object.value)
+    }
+}
+
+export const TestLine = (props, chartData, getData ) => {
 	const [newData, setNewData] = useState({});
+	const [userData, setUserData] = useState(props.chartData);
 	const [updateData, setUpdateData] = useState(false);
 	const id = localStorage.getItem("user_id");
-	// let userData = newData.datasets;
-	// console.log(`userData: ${userData}`);
+	
+	
+	
 
 	const glucoseLineChart = () => {
-		// console.log("Ping");
+
 		setNewData({
 			labels: [
 				"Undefined",
@@ -74,34 +88,19 @@ export const TestLine = (props) => {
 	};
 
 
-
 	useEffect(() => {
-		axiosWithAuth()
-			.get(`https://diabetesmanager.herokuapp.com/api/manager/manage/${id}`)
-			.then((res) => {
-				// console.log("user data", res);
-				setNewData(
-					newData,
-					(newData.datasets[1].data = res.data.map((el) => el.value))
-				);
-				console.log("newdata: ", newData)
-			})
-			// .then(getData())
-			.catch((err) => console.log("axios err: ", err));
-			axiosWithAuth()
-				.get(`https://diabetesmanager.herokuapp.com/api/manager/manage/ds/1`)
-				.then((res) => {
-					// console.log("ds response", res);
-					setNewData(newData, (newData.datasets[0].data = Object.values(res.data)));
-				})
-				.catch((err) => console.log("axios err: ", err));
-
+		props.getData();
 	}, [updateData]);
 
-
+	console.log("userData: ", userData);
 	useEffect(() => {
 		glucoseLineChart();
-	}, []);
+	}, [chartData]);
+
+	
+	// props.chartData.subscribe(() => {
+	// 	console.log(props.chartData.getState())
+	// })
 
 	return (
 		<div>
@@ -116,7 +115,16 @@ export const TestLine = (props) => {
 					position: "bottom",
 				}}
 			/>
+			<button onClick={props.getData}>Refresh</button>
 		</div>
 	);
 };
-export default TestLine;
+
+
+function mapStateToProps(state){
+	return{
+		chartData: state.dataReducer.diadata,
+	}
+}
+
+export default connect(mapStateToProps, {getData})(TestLine);

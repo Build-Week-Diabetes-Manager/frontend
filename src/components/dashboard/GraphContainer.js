@@ -1,8 +1,8 @@
 import { Grid } from "@material-ui/core";
 import React, { useState } from "react";
-import TestDoughnut from "./charts/ChartThree";
-import TestLine from "./charts/ChartTwo.js";
-import UserInput from "./glucoseLevelInputForm/UserInput";
+import TestDoughnut from "../charts/ChartThree";
+import TestLine from "../charts/ChartTwo.js";
+import UserInput from "../glucoseLevelInputForm/UserInput";
 
 // import "../components/charts/charts.scss"
 
@@ -20,12 +20,12 @@ const GraphContainer = () => {
 	// }, []);
 
 	return (
-		<Grid container spacing={2}>
-			<Grid item className="graph-one" sm={12} lg={6}>
+		<Grid container spacing={2} alignContent='space-between'>
+			<Grid item className="graphs graph-one" sm={12} lg={6}>
 				<TestDoughnut />
 			</Grid>
 
-			<Grid item className="graph-two "sm={12} lg={6}>
+			<Grid item className="graphs graph-two "sm={12} lg={6}>
 				<TestLine />
 			</Grid>
 
