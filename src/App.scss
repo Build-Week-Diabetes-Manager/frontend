@@ -150,7 +150,11 @@ h6 {
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr 1fr;
 	grid-gap: 1em;
+	width: 100%;
+	max-width: 100vw;
+	
 }
+
 
 .nutriList {
 	max-height: 500px;
@@ -175,7 +179,6 @@ h6 {
 	width: 100%;
 }
 
-
 	.grid-item-one {
 		width: 99%;
 		padding: 1em;
@@ -183,6 +186,7 @@ h6 {
 		box-shadow: 0 5px 13px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 		border-radius: 10px;
 		background-color: white;
+		max-width: 99%;
 	}
 	.grid-item-two{
 		width: 99%;
@@ -191,15 +195,9 @@ h6 {
 		box-shadow: 0 5px 13px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 		border-radius: 10px;
 		text-align: center;
+		max-width: 99%;
 	}
 
-// .graph-container{
-// 	width: 100%;
-// 	display: grid;
-// 	grid-template-columns: 1fr 1fr;
-// 	grid-template-rows: max-content max-content;
-// 	grid-gap: 1rem;
-// }
 .grid-item-three{
 	padding: 1em;
 	background-color: white;
@@ -444,5 +442,17 @@ button.outline {
 
 	&:hover {
 		background-color: orange;
+	}
+}
+
+@media only screen and (max-width: 1050px) {
+	.view-container{
+		grid-template-columns: 1fr;
+		grid-template-rows: auto
+		
+	}
+	.grid-item-three{
+		grid-column-start: 1;
+		grid-column-end: 2;
 	}
 }
