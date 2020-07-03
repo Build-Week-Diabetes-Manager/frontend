@@ -174,10 +174,10 @@ h6 {
 
 	.graphs{
 		text-align: center;
-		box-shadow: 0 5px 13px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-		border-radius: 10px;
-		padding: 1rem;
-		background-color: white;
+		// box-shadow: 0 5px 13px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+		// border-radius: 10px;
+		// padding: 1rem;
+		// background-color: white;
 	}
 
 }
@@ -230,13 +230,11 @@ h6 {
 
 /* -------------------------------------------USER FORM -----------------------------------*/
 .user-input {
-	background-color: white;
-	box-shadow: 0 5px 13px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-	border-radius: 5px;
+	// background-color: white;
+	// box-shadow: 0 5px 13px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	// border-radius: 5px;
 	padding: 1rem 1rem 5rem 1rem;
 	text-align: center;
-	grid-column-start: 1;
-	grid-column-end: 3;
 	h2 {
 		padding-top: 3rem;
 	}
@@ -244,7 +242,13 @@ h6 {
 		padding-bottom: 2rem;
 	}
 }
-
+.paper{
+	padding: 1em;
+	margin: 1em;
+}
+.root{
+	flex-grow: 1;
+}
 .user-form {
 	width: 500px;
 	height: max-content;
@@ -391,7 +395,8 @@ button.outline {
 }
 .user-input-form {
 	max-width: 50%;
-	margin: 0 auto;
+	margin: 0 auto 2em auto;
+
 	label {
 		text-align: left;
 	}

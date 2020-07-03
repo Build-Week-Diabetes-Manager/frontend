@@ -104,7 +104,7 @@ export const TestLine = (props) => {
 					position: "bottom",
 				}}
 			/>
-			<button onClick={handleRefresh}>Refresh</button>
+			{/* <button onClick={handleRefresh}>Refresh</button> */}
 		</div>
 	);
 };
