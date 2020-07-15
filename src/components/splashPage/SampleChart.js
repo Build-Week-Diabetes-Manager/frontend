@@ -7,8 +7,8 @@ const sampleUserData = [80, 90, 70, 64, 123];
 
 export const ExampleChart = (props) => {
 	const [newData, setNewData] = useState({});
-	const [updateData, setUpdateData]  = useState();
-	const id = localStorage.getItem("user_id");
+	const [updateData]  = useState();
+	// const id = localStorage.getItem("user_id");
 
 	const glucoseLineChart = () => {
 		console.log("Ping");
