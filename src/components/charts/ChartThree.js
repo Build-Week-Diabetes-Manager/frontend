@@ -6,10 +6,10 @@ import colors from "../colors";
 
 
 const BarGraph = (props) => {
-  const { chartData, userBGLData} = props;
+  const {userBGLData} = props;
   
   const [barData, setBarData] = useState({});
-  const [userBarData, setUserBarData] = useState(Object.values(userBGLData))
+  const [userBarData] = useState(Object.values(userBGLData))
   const lastBGL = userBarData[userBarData.length -1]
 
 console.log(lastBGL)

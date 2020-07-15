@@ -8,7 +8,6 @@ import "../../App.scss";
 
 const SignUp = ({ errors, touched, values, status }) => {
 	const [newUsers, setNewUsers] = useState({});
-	const [login, setLogin] = useState(true);
 
 	useEffect(() => {
 		if (status) {
